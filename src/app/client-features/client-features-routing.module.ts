@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MainFrontMainComponent } from './main-front-main/main-front-main.component';
+import { ClientFeaturesMain } from './client-features-main/client-features-main.component';
 import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: MainFrontMainComponent,
+    component: ClientFeaturesMain,
     children: [
       { path: '', component: HomeComponent, pathMatch: 'full' }]
     
@@ -54,4 +54,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 
-export class MainFrontRoutingModule { }
+export class ClientFeaturesRoutingModule { }

@@ -1,7 +1,7 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MainFrontMainComponent } from './main-front-main/main-front-main.component';
-import { MainFrontRoutingModule } from './main-front-routing.module'
+import { ClientFeaturesMain } from './client-features-main/client-features-main.component';
+import { ClientFeaturesRoutingModule } from './client-features-routing.module'
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { SilderComponent } from './silder/silder.component';
@@ -16,7 +16,7 @@ import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
-    MainFrontMainComponent,
+    ClientFeaturesMain,
     TopBarComponent,
     SilderComponent,
     FooterComponent,
@@ -24,7 +24,7 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     CommonModule,
-    MainFrontRoutingModule,
+    ClientFeaturesRoutingModule,
     WidgetsModule,
     MDBBootstrapModule.forRoot()
     // NgbAlertModule
@@ -32,4 +32,4 @@ import { HomeComponent } from './home/home.component';
   schemas: [ NO_ERRORS_SCHEMA ],
   exports: [HomeComponent]
 })
-export class MainFrontModule { }
+export class ClientFeaturesModule { }
