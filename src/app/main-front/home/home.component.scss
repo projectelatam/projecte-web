@@ -1,0 +1,21 @@
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+.resume-grls{
+    margin-bottom: 45px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    // justify-content: space-evenly;
+    @include media-breakpoint-up(lg){     
+        flex-grow: 2;
+    }
+    @include media-breakpoint-up(xlg){     
+        justify-content: space-between;
+    }
+    .card{
+        width: 350px;
+        margin-top: 40px;
+    }
+}

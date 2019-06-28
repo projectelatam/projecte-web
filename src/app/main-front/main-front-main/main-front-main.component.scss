@@ -1,0 +1,25 @@
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+.page-content{
+   .page-container{
+       display: flex;
+       .page-col{
+            flex-grow: 1;
+       }
+       .right-col, .left-col{
+            > *{
+                position: sticky;
+                right: 0;
+                top: 0;        
+            }
+       }
+       .page-main-col{
+            background: white;
+       }
+       mdb-card{
+           width: 280px;
+       }
+   }
+}
