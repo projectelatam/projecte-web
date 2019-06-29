@@ -7,6 +7,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    justify-items: flex-start;
     // justify-content: space-evenly;
     @include media-breakpoint-up(lg){     
         flex-grow: 2;
@@ -17,5 +18,6 @@
     .card{
         width: 350px;
         margin-top: 40px;
+
     }
 }

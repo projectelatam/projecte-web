@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './client-features/client-features.module#ClientFeaturesModule'
+    loadChildren: () => import('./client-features/client-features.module').then(m => m.ClientFeaturesModule)
   }
   // {
   //   path: '',

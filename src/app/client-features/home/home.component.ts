@@ -7,11 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   
-  public s = [1, 2, 3, 4, 5, 6];
+  public s = [1, 2, 3, 4, 5, 6, 7, 8 , 9];
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  getImageUrl(i){
+    var id = i % 6 || 1;
+    return "assets/" + id + ".jpeg";
   }
 
 }

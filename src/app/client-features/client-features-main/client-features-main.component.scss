@@ -3,23 +3,33 @@
 @import "../../../styles/mixins";
 
 .page-content{
-   .page-container{
-       display: flex;
-       .page-col{
+    .page-container{
+        display: flex;
+        align-items: stretch;
+        overflow: auto;
+        .page-col{
+            display: flex;
             flex-grow: 1;
-       }
-       .right-col, .left-col{
-            > *{
-                position: sticky;
-                right: 0;
-                top: 0;        
+            background-color: white;
+        }
+        .left-col,
+        .right-col{
+            app-contact-widget{
+                left: 2vw;
             }
-       }
-       .page-main-col{
+            app-newsletter-widget {
+                right: -82vw;
+            }
+            .side{
+                top: 500px;
+                position: fixed;
+            }
+        }
+        .page-main-col{
             background: white;
-       }
-       mdb-card{
-           width: 280px;
-       }
+        }
+        mdb-card{
+            width: 280px;
+        }
    }
 }

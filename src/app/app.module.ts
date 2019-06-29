@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { WidgetsModule } from './widgets/widgets.module';
+import { SvgModule } from './svg/svg.module';
+import {MatInputModule} from '@angular/material';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { WidgetsModule } from './widgets/widgets.module';
     AppRoutingModule,
     NoopAnimationsModule,
     HttpClientModule,
-    WidgetsModule
+    MatInputModule,
+    WidgetsModule,
+    SvgModule
   ],
   providers: [],
   bootstrap: [AppComponent]

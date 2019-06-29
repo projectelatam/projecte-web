@@ -1,7 +1,25 @@
 
+:host{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
 
 .contact{
     height: 250px;
     width: 300px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /*/deep/*/ app-phone-svg svg{
+        fill: #39b764;
+        width: 60px;
+    }
+    app-phone-svg{
+        margin: auto;
+    }
+
     background-color: aquamarine;
 }
