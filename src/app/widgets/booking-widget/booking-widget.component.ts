@@ -15,6 +15,15 @@ export class BookingWidgetComponent implements OnInit {
   toppings = new FormControl(); // rename toopins to house time
 
   toppingList: string[] = ['Villa', 'Suite'];
+
+  foods = [
+    { value: '', disabled: false },
+    { value: 'steak-0', viewValue: 'Steak' },
+    { value: 'pizza-1', viewValue: 'Pizza' },
+    { value: 'tacos-2', viewValue: 'Tacos is disabled', disabled: true },
+    { value: 'fruit-3', viewValue: 'Fruit' },
+  ];
+  
   constructor() { }
 
   ngOnInit() {
