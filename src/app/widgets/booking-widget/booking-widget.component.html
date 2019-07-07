@@ -1,4 +1,4 @@
-<div class="booking-widget">
+<div class="booking-widget amdc-all">
     <div class="content">
         <mat-card class="card">
             <div class="b-card-content">
@@ -19,6 +19,20 @@
                         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                         <mat-datepicker #picker2 color="primary"></mat-datepicker>
                     </mat-form-field>
+
+                    <mdc-select #enhanced placeholder="Fruit" [helperText]="enhancedHelper" required
+                        class="demo-enhanced-width">
+                        <mdc-menu>
+                            <mdc-list>
+                                <mdc-list-item selected></mdc-list-item>
+                                <mdc-list-item value="apple">Apple</mdc-list-item>
+                                <mdc-list-item value="orange">Orange</mdc-list-item>
+                                <mdc-list-item value="banana">Banana</mdc-list-item>
+                                <mdc-list-item disabled value="mango">Mango</mdc-list-item>
+                            </mdc-list>
+                        </mdc-menu>
+                    </mdc-select>
+                    <mdc-helper-text #enhancedHelper validation>Field is required</mdc-helper-text>
 
                     <mat-radio-group aria-label="Select an option">
                         <mat-radio-button value="1">Pakages</mat-radio-button>

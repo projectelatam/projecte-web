@@ -8,6 +8,7 @@ import { SvgModule } from '../svg/svg.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from '../material/material.module';
 import {OverlayModule} from '@angular/cdk/overlay';
+import { AmdcModule } from '../amdc/amdc.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {OverlayModule} from '@angular/cdk/overlay';
     SvgModule,
     NgbModule,
     MaterialModule,
-    OverlayModule
+    OverlayModule,
+    AmdcModule
     ],
   exports: [
     BookingWidgetComponent, 

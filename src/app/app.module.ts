@@ -11,6 +11,7 @@ import { SvgModule } from './svg/svg.module';
 import {MatInputModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule} from '@angular/material';
 import { TestComponent } from './test/test.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { AmdcModule } from './amdc/amdc.module';
 // import { GtagModule } from 'angular-gtag';
 
 
@@ -26,15 +27,20 @@ import { LayoutModule } from '@angular/cdk/layout';
     BrowserAnimationsModule,
     // NoopAnimationsModule,
     HttpClientModule,
-    MatInputModule,
     WidgetsModule,
     SvgModule,
+    
+    //delete soon
+    MatInputModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    // end delete soon
+    
+    AmdcModule,
     // GtagModule.forRoot({ trackingId: 'GTM-MGB2KZ3', trackPageviews: true, debug: true })
   ],
   providers: [],

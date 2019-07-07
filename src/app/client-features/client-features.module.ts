@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import {AngularStickyThingsModule} from '@w11k/angular-sticky-things';
 import { MaterialModule } from '../material/material.module';
 import { PackagesComponent } from './packages/packages.component';
+import { AmdcModule } from '../amdc/amdc.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PackagesComponent } from './packages/packages.component';
     MDBBootstrapModule.forRoot(),
     SvgModule,
     AngularStickyThingsModule,
-    MaterialModule
+    MaterialModule,
+    AmdcModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   exports: [HomeComponent]

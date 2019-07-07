@@ -1,39 +1,88 @@
-/* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "styles/variables.scss";
-// $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-// @import "node_modules/bootstrap/scss/bootstrap.scss";
-$white:    #fff;
-$gray-100: #f8f9fa;
-$gray-200: #e9ecef;
-$gray-300: #dee2e6;
-$gray-400: #ced4da;
-$gray-500: #adb5bd;
-$gray-600: #6c757d;
-$gray-700: #495057;
-$gray-800: #343a40;
-$gray-900: #212529;
-$black:    #000;
-
-$blue:    #007bff;
-$indigo:  #6610f2;
-$purple:  #6f42c1;
-$pink:    #e83e8c;
-$red:     #dc3545;
-$orange:  #fd7e14;
-$yellow:  #ffc107;
-$green:   #28a745;
-$teal:    #20c997;
-$cyan:    #17a2b8;
-
 @import "node_modules/bootstrap/scss/bootstrap.scss";
+/* You can add global styles to this file, and also import other style files */
 
-// linear-gradient(90deg, #fdf3b6 0%, #f9bc48 35%, #f67207 100%)
 
+// #Angular Material 2
+@import '~@angular/material/theming';
+@include mat-core();
+
+.pe-dark-theme{
+    $pe-dark-primary: mat-palette($mat-blue-grey);
+    $pe-dark-accent:  mat-palette($mat-amber, A200, A100, A400);
+    $pe-dark-warn:    mat-palette($mat-deep-orange);
+    // // Background palette for dark themes.
+    // $mat-dark-theme-background: (
+    //     status-bar: black,
+    //     app-bar:    map_get($mat-grey, 900),
+    //     background: #303030,
+    //     hover:      rgba(white, 0.04), // TODO(kara): check style with Material Design UX
+    //     card:       map_get($mat-grey, 900),
+    //     dialog:     map_get($mat-grey, 800),
+    //     disabled-button: rgba(white, 0.12),
+    //     raised-button: map-get($mat-grey, 800),
+    //     focused-button: $light-focused,
+    //     selected-button: map_get($mat-grey, 900),
+    //     selected-disabled-button: map_get($mat-grey, 800),
+    //     disabled-button-toggle: black,
+    //     unselected-chip: map_get($mat-grey, 700),
+    //     disabled-list-option: black,
+    // );
+    //   // Foreground palette for dark themes.
+    // $mat-dark-theme-foreground: (
+    //     base:              white,
+    //     divider:           $light-dividers,
+    //     dividers:          $light-dividers,
+    //     disabled:          $light-disabled-text,
+    //     disabled-button:   rgba(white, 0.3),
+    //     disabled-text:     $light-disabled-text,
+    //     elevation:         black,
+    //     hint-text:         $light-disabled-text,
+    //     secondary-text:    $light-secondary-text,
+    //     icon:              white,
+    //     icons:             white,
+    //     text:              white,
+    //     slider-min:        white,
+    //     slider-off:        rgba(white, 0.3),
+    //     slider-off-active: rgba(white, 0.3),
+    // );
+    $pe-dark-theme:   mat-dark-theme($pe-dark-primary, $pe-dark-accent, $pe-dark-warn);
+    @include angular-material-theme($pe-dark-theme);
+}
+
+
+// #MDC Angular
+.amdc-all {
+    $mdc-theme-primary: #1565c0; // primary color
+    $mdc-theme-secondary: #388e3c; // secondary color
+    @import "~@angular-mdc/theme/material";
+
+}
+//card
+// #242222
+//#282323 
+//#3f3838
+
+// #General Styles
 body{
     // background-color: #eaeaea;
     background-color: #211f23;
+    // linear-gradient(90deg, #fdf3b6 0%, #f9bc48 35%, #f67207 100%)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
