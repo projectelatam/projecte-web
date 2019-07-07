@@ -13,7 +13,9 @@ import { SvgModule } from '../svg/svg.module';
 // https://github.com/sherweb/ngx-materialize
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { HomeComponent } from './home/home.component';
-
+import {AngularStickyThingsModule} from '@w11k/angular-sticky-things';
+import { MaterialModule } from '../material/material.module';
+import { PackagesComponent } from './packages/packages.component';
 
 @NgModule({
   declarations: [
@@ -21,15 +23,17 @@ import { HomeComponent } from './home/home.component';
     TopBarComponent,
     SilderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    PackagesComponent
   ],
   imports: [
     CommonModule,
     ClientFeaturesRoutingModule,
     WidgetsModule,
     MDBBootstrapModule.forRoot(),
-    SvgModule
-    // NgbAlertModule
+    SvgModule,
+    AngularStickyThingsModule,
+    MaterialModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   exports: [HomeComponent]

@@ -23,6 +23,15 @@
     .view{
         height: $slider-height;
     }
+    .slide-image{
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+    }
+    /deep/ .carousel-indicators{
+        z-index: 1002;
+
+    }
     app-booking-widget{
         position: absolute;
         top: 0;

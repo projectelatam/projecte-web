@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
+// import { Gtag } from 'angular-gtag';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,13 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class AppComponent {
   title = 'projecte';
-  constructor(private http: HttpClient){
+  constructor(private http: HttpClient, 
+    // public gtag: Gtag
+    ){
     console.log(http)
   }
   public ngOnInit(): void{
-  
+    // this.gtag.pageview();
+    // this.gtag.event('view_promotion')
   }
 }

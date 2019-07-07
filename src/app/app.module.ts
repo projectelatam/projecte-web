@@ -3,26 +3,39 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { WidgetsModule } from './widgets/widgets.module';
 import { SvgModule } from './svg/svg.module';
-import {MatInputModule} from '@angular/material';
+import {MatInputModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule} from '@angular/material';
+import { TestComponent } from './test/test.component';
+import { LayoutModule } from '@angular/cdk/layout';
+// import { GtagModule } from 'angular-gtag';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NoopAnimationsModule,
+    BrowserAnimationsModule,
+    // NoopAnimationsModule,
     HttpClientModule,
     MatInputModule,
     WidgetsModule,
-    SvgModule
+    SvgModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    // GtagModule.forRoot({ trackingId: 'GTM-MGB2KZ3', trackPageviews: true, debug: true })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,16 +1,18 @@
 <app-top-bar></app-top-bar>
 <app-silder></app-silder>
-<div class="page-content">
-    <div class="page-container">
-      <div class="page-col left-col">
-          <app-contact-widget class="side"></app-contact-widget>
-      </div>
-      <div class="container page-col page-main-col">
-          <router-outlet></router-outlet>
-      </div>
-      <div class="page-col right-col">
-        <app-newsletter-widget class="side"></app-newsletter-widget>
-      </div>
+<div class="page-content mat-typography">
+  <div class="page-container">
+    <div class="page-col left-col">
+        <div #spacer></div>
+        <!-- <app-contact-widget stickyThing [spacer]="spacer" marginTop="90"></app-contact-widget> -->
     </div>
+    <div class="container page-col page-main-col">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="page-col right-col">
+      <div #spacer2></div>
+      <!-- <app-newsletter-widget stickyThing [spacer]="spacer2" marginTop="90"></app-newsletter-widget> -->
+    </div>
+  </div>
 </div>
 <app-footer></app-footer>

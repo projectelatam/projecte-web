@@ -8,25 +8,40 @@
         align-items: stretch;
         overflow: auto;
         .page-col{
-            display: flex;
+            // display: flex;
             flex-grow: 1;
+            // flex-shrink: 1;
             background-color: white;
         }
         .left-col,
         .right-col{
-            app-contact-widget{
-                left: 2vw;
+            // TODO: make the contact float on mobile in the bottom
+            display: none;
+            // background: #181719;
+            background: #211f23;
+            // #222023
+            // overflow: hidden;
+            @include media-breakpoint-up(lg){
+                display: block;
             }
-            app-newsletter-widget {
-                right: -82vw;
-            }
+            // app-contact-widget{
+            //     left: 2vw;
+            // }
+            // app-newsletter-widget {
+            //     right: -82vw;
+            // }
             .side{
-                top: 500px;
-                position: fixed;
+                height: 250px;
+                width: 100%;
+                display: block;
+                // width: 300px;
+                // top: 500px;
+                // position: -webkit-sticky;
+                // position: sticky;
             }
         }
         .page-main-col{
-            background: white;
+            background: #16171D;
         }
         mdb-card{
             width: 280px;

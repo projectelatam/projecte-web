@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// import { Gtag } from 'angular-gtag';
 
 @Component({
   selector: 'app-client-features-main',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientFeaturesMain implements OnInit {
 
-  constructor() { }
+  constructor(
+    // public gtag: Gtag
+  ) {
+    // this.gtag.pageview();
+    // this.gtag.event('view_promotion')
+  }
 
   ngOnInit() {
   }

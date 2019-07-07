@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ClientFeaturesMain } from './client-features-main/client-features-main.component';
 import { HomeComponent } from './home/home.component';
+import { PackagesComponent } from './packages/packages.component';
 
 
 const routes: Routes = [
@@ -9,7 +10,10 @@ const routes: Routes = [
     path: '',
     component: ClientFeaturesMain,
     children: [
-      { path: '', component: HomeComponent, pathMatch: 'full' }]
+      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'packages', component: PackagesComponent, pathMatch: 'full' }
+
+    ]
     
       //#region Credit Cards
     //   {
