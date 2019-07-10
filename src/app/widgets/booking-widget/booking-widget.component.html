@@ -6,25 +6,47 @@
                     <mat-card-title>Booking</mat-card-title>
                 </mat-card-header>
                 <mat-card-content>
-                    <mat-form-field color="accent">
+                    <mat-form-field color="accent" appearance="fill">
                         <mat-label>Check In</mat-label>
                         <input matInput [matDatepicker]="picker1">
                         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                         <mat-datepicker #picker1></mat-datepicker>
                     </mat-form-field>
 
-                    <mat-form-field color="accent">
+                    <mat-form-field color="accent" appearance="fill">
                         <mat-label>Check out</mat-label>
                         <input matInput [matDatepicker]="picker2">
                         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                         <mat-datepicker #picker2 color="primary"></mat-datepicker>
                     </mat-form-field>
-                
+
+                    <!-- <mdc-select #meal [helperText]="mealHelper" required placeholder="Pick a Meal" autosize>
+                        <mdc-icon mdcSelectIcon>fastfood</mdc-icon>
+                        <option *ngFor="let food of foods" [value]="food.value" [disabled]="food.disabled">
+                            {{food.viewValue}}
+                        </option>
+                    </mdc-select>
+                    <mdc-helper-text #mealHelper validation>
+                        <span *ngIf="!meal.value">Meal selection is required</span>
+                    </mdc-helper-text> -->
+
+
                     <mat-radio-group aria-label="Select an option">
                         <mat-radio-button value="1">Pakages</mat-radio-button>
                         <mat-radio-button value="2">By Stay</mat-radio-button>
                     </mat-radio-group>
-                    <mat-form-field>
+
+                    <mat-form-field appearance="fill" class="stay-select" *ngIf="false">
+                        <mat-label>Stay</mat-label>
+                        <mat-select name="stay">
+                            <mat-option *ngFor="let stay of houseStay" [value]="stay.value">
+                                {{stay.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+             
+
+                    <!-- <mat-form-field>
                         <mat-select placeholder="Stay Type" multiple>
                             <mat-select-trigger>
                                 {{toppings.value ? toppings.value[0] : ''}}
@@ -35,14 +57,32 @@
                             </mat-select-trigger>
                             <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
                         </mat-select>
-                    </mat-form-field>
+                    </mat-form-field> -->
+
+
+                    <!-- <mdc-select #enhanced placeholder="Fruit" [helperText]="enhancedHelper" required
+                        class="demo-enhanced-width">
+                        <mdc-menu>
+                            <mdc-list>
+                                <mdc-list-item selected></mdc-list-item>
+                                <mdc-list-item value="apple">Apple</mdc-list-item>
+                                <mdc-list-item value="orange">Orange</mdc-list-item>
+                                <mdc-list-item value="banana">Banana</mdc-list-item>
+                                <mdc-list-item disabled value="mango">Mango</mdc-list-item>
+                            </mdc-list>
+                        </mdc-menu>
+                    </mdc-select>
+                    <mdc-helper-text #enhancedHelper validation>Field is required</mdc-helper-text>
+
+                    <p> Value: {{ enhanced.value }}</p>
+                    <p> Index: {{ enhanced.getSelectedIndex() }}</p> -->
 
                 </mat-card-content>
 
 
                 <mat-card-actions>
                     <div class="example-button-row">
-                        <button mat-raised-button>Book Now</button>
+                        <button mat-raised-button color="primary">Book Now</button>
                     </div>
                 </mat-card-actions>
             </div>

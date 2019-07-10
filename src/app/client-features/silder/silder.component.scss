@@ -30,6 +30,9 @@
     }
     /*/deep/*/ .carousel-indicators{
         z-index: 1002;
+        .ng-star-inserted{
+            background: orange;
+        }
 
     }
     app-booking-widget{
@@ -47,4 +50,17 @@
             
         }
     }
+    .carousel-control-next,
+    .carousel-control-prev{
+        opacity: 1;
+    }
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon {
+        background-color: orange;
+        height: 50px;
+        width: 50px;
+        opacity: 1;
+        border-radius: 100%;
+    }
+
 }

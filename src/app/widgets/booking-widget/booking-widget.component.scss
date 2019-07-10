@@ -11,6 +11,7 @@
         padding: 15px;
     }
     .card{
+        border-top: 4px solid orange; //play with the eges
         // padding: 15px;
         max-width: 230px;
         width: 100%;
@@ -40,5 +41,21 @@
     .example-additional-selection {
         opacity: 0.75;
         font-size: 0.75em;
+    }
+
+    mdc-menu,
+    .mdc-menu-surface{
+        z-index: 1000;
+    }
+
+    .stay-select{
+        width: 100%;
+    }
+    .example-button-row{
+        display: flex;
+        justify-content: flex-end;
+        button{
+            margin-right: 7px;
+        }
     }
 }

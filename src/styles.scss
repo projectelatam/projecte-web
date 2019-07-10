@@ -12,6 +12,48 @@ body{
     // linear-gradient(90deg, #fdf3b6 0%, #f9bc48 35%, #f67207 100%)
 }
 
+
+.title-nfasis{
+    margin-bottom: 1.5rem!important;
+    .underline{
+        position: relative;
+        &:before{
+            content: "";
+            display: block;
+            height: 4px;
+            background-color: orange;
+            position: absolute;
+            bottom: -10px;
+            width: 100%;
+            left: 2px;
+        }
+    }
+}
+
+strong{
+    color: #aa7a00;
+}
+
+// move this
+.carousel-indicators{
+    z-index: 1002;
+    // .ng-star-inserted{
+    //     background: orange;
+    // }
+
+}
+.carousel-control-next,
+.carousel-control-prev{
+    opacity: 1;
+}
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    background-color: orange;
+    height: 50px;
+    width: 50px;
+    opacity: 1;
+    border-radius: 100%;
+}
 // for normal text 
 // #818181;
 

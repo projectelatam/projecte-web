@@ -1,12 +1,13 @@
 <app-top-bar></app-top-bar>
 <app-silder></app-silder>
-<div class="page-content mat-typography">
+<!-- mat-typography -->
+<div class="page-content">
   <div class="page-container">
     <div class="page-col left-col">
         <div #spacer></div>
         <!-- <app-contact-widget stickyThing [spacer]="spacer" marginTop="90"></app-contact-widget> -->
     </div>
-    <div class="container page-col page-main-col">
+    <div class="container page-col page-main-col mat-card">
       <router-outlet></router-outlet>
     </div>
     <div class="page-col right-col">

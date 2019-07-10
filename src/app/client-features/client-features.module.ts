@@ -17,6 +17,10 @@ import {AngularStickyThingsModule} from '@w11k/angular-sticky-things';
 import { MaterialModule } from '../material/material.module';
 import { PackagesComponent } from './packages/packages.component';
 import { AmdcModule } from '../amdc/amdc.module';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { GalleryComponent } from './pages/gallery/gallery.component';
+import { BookingComponent } from './pages/booking/booking.component';
+import { ModelsComponent } from './pages/models/models.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { AmdcModule } from '../amdc/amdc.module';
     SilderComponent,
     FooterComponent,
     HomeComponent,
-    PackagesComponent
+    PackagesComponent,
+    ContactUsComponent,
+    GalleryComponent,
+    BookingComponent,
+    ModelsComponent
   ],
   imports: [
     CommonModule,
@@ -38,6 +46,6 @@ import { AmdcModule } from '../amdc/amdc.module';
     AmdcModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  exports: [HomeComponent]
+  exports: [HomeComponent, ContactUsComponent, GalleryComponent, BookingComponent, ModelsComponent]
 })
 export class ClientFeaturesModule { }

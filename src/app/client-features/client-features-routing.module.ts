@@ -3,6 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { ClientFeaturesMain } from './client-features-main/client-features-main.component';
 import { HomeComponent } from './home/home.component';
 import { PackagesComponent } from './packages/packages.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { BookingComponent } from './pages/booking/booking.component';
+import { GalleryComponent } from './pages/gallery/gallery.component';
+import { ModelsComponent } from './pages/models/models.component';
 
 
 const routes: Routes = [
@@ -11,7 +15,11 @@ const routes: Routes = [
     component: ClientFeaturesMain,
     children: [
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'packages', component: PackagesComponent, pathMatch: 'full' }
+      { path: 'packages', component: PackagesComponent, pathMatch: 'full' },
+      { path: 'booking', component: BookingComponent, pathMatch: 'full' },
+      { path: 'contact', component: ContactUsComponent, pathMatch: 'full' },
+      { path: 'gallery', component: GalleryComponent, pathMatch: 'full' },
+      { path: 'models', component: ModelsComponent, pathMatch: 'full' }
 
     ]
     

@@ -3,6 +3,7 @@
 @import "../../../styles/mixins";
 
 .page-content{
+    border-top: 5px solid orange;
     .page-container{
         display: flex;
         align-items: stretch;
@@ -41,6 +42,7 @@
             }
         }
         .page-main-col{
+            // border-top: 5px solid orange;
             background: #16171D;
         }
         mdb-card{
