@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginDialogComponent } from 'src/app/dialog/login-dialog/login-dialog.component';
 
 @Component({
   selector: 'app-footer',
@@ -6,10 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-
-  constructor() { }
+  
+  animal: any;
+  constructor(public dialog: MatDialog) {
+    
+   }
 
   ngOnInit() {
+  }
+
+  openDialog(): void { // move the button tu its own component
+    const dialogRef = this.dialog.open(LoginDialogComponent, {
+      width: '250px',
+      data: {name: 'sds', animal: 'dsds'}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
   }
 
 }

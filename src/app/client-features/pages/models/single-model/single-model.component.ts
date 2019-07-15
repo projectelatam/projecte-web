@@ -19,8 +19,6 @@ export class SingleModelComponent implements OnInit {
     public modelService: ModelsService,
     public route: ActivatedRoute
   ) {
-
-   
     this.modelId = +this.route.snapshot.params.id;
     this.modelData = this.modelService.getModel(this.modelId);
     this.model = new ModelsModelView(this.modelData);

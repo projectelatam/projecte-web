@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./booking.component.scss']
 })
 export class BookingComponent implements OnInit {
-  public places = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  public places = [1, 2, 3, 4, 5, 6, 7, 8]
   constructor(public route: ActivatedRoute) { 
     console.log(this.route.snapshot.queryParams)
   }

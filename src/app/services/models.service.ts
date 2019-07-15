@@ -13,6 +13,7 @@ interface ModelDetail {
   rate: object;
   tattos: string; //use enums
   availability: string;
+  orientation: string;
 
 }
 interface Model {
@@ -21,6 +22,8 @@ interface Model {
   description: string;
   shortDesc:string;
   details: ModelDetail;
+  category: number;
+  ImgProfile: string;
   
 }
 
@@ -35,6 +38,8 @@ export class ModelsService {
       name: "fancisca",
       description: 'an exotic upscale beauty that is a true “free spirit”.  Her gift of giving and then tuning into your energy will provide you with a uniqueness of understanding and fulfillment that will be felt in her favorite way of expression......body language!!!! ',
       shortDesc: 'We are so glad for you to meet Ruby.......',
+      ImgProfile: '',
+      category: 1,
       details: { 
         skin: '',
         height: 5.3,
@@ -47,7 +52,8 @@ export class ModelsService {
         image: '',
         rate: {},
         tattos: '',
-        availability: ''
+        availability: '',
+        orientation: 'hetero'
       }
     }
   ];

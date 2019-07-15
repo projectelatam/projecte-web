@@ -23,6 +23,7 @@ import { BookingComponent } from './pages/booking/booking.component';
 import { ModelsComponent } from './pages/models/models.component';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { SingleModelComponent } from './pages/models/single-model/single-model.component';
+import { LoginWidgetComponent } from '../widgets/login-widget/login-widget.component';
 // /ngx-gallery
 @NgModule({
   declarations: [
@@ -50,6 +51,13 @@ import { SingleModelComponent } from './pages/models/single-model/single-model.c
     NgxGalleryModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  exports: [HomeComponent, ContactUsComponent, GalleryComponent, BookingComponent, ModelsComponent, SingleModelComponent]
+  exports: [
+    HomeComponent,
+    ContactUsComponent, 
+    GalleryComponent, 
+    BookingComponent, 
+    ModelsComponent, 
+    SingleModelComponent
+  ]
 })
 export class ClientFeaturesModule { }

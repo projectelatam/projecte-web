@@ -18,6 +18,7 @@ import { TestComponent } from './test/test.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AmdcModule } from './amdc/amdc.module';
 import { ServicesModule } from './services/services.module';
+import { DialogModule } from './dialog/dialog.module';
 // import { GtagModule } from 'angular-gtag';
 
 
@@ -48,6 +49,7 @@ import { ServicesModule } from './services/services.module';
     
     AmdcModule,
     ServicesModule,
+    DialogModule,
     // GtagModule.forRoot({ trackingId: 'GTM-MGB2KZ3', trackPageviews: true, debug: true })
   ],
   providers: [],

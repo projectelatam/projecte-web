@@ -10,12 +10,14 @@ import { MaterialModule } from '../material/material.module';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { AmdcModule } from '../amdc/amdc.module';
 import { RouterModule } from '@angular/router';
+import { LoginWidgetComponent } from './login-widget/login-widget.component';
 
 @NgModule({
   declarations: [
     BookingWidgetComponent, 
     ContactWidgetComponent, 
-    NewsletterWidgetComponent
+    NewsletterWidgetComponent,
+    LoginWidgetComponent
   ],
   imports: [
     CommonModule,
@@ -30,8 +32,9 @@ import { RouterModule } from '@angular/router';
   exports: [
     BookingWidgetComponent, 
     ContactWidgetComponent, 
-    NewsletterWidgetComponent
+    NewsletterWidgetComponent, 
+    LoginWidgetComponent
   ], 
-  providers: []
+  providers: [],
 })
 export class WidgetsModule { }
