@@ -11,7 +11,7 @@
 </div>
 <div class="resume-grls">
   <div *ngFor="let i of s" class="joder">
-    <mat-card class="example-card view overlay">
+    <mat-card class="example-card view overlay" [routerLink]="['/models/'+i]">
       <!-- <mat-card-header> -->
       <!-- <div mat-card-avatar class="example-header-image"></div> -->
       <!-- <mat-card-title>Shiba Inu</mat-card-title> -->

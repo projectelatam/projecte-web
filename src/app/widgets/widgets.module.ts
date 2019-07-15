@@ -9,6 +9,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from '../material/material.module';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { AmdcModule } from '../amdc/amdc.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AmdcModule } from '../amdc/amdc.module';
     NgbModule,
     MaterialModule,
     OverlayModule,
-    AmdcModule
+    AmdcModule,
+    RouterModule
     ],
   exports: [
     BookingWidgetComponent, 

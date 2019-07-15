@@ -21,7 +21,9 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { BookingComponent } from './pages/booking/booking.component';
 import { ModelsComponent } from './pages/models/models.component';
-
+import { NgxGalleryModule } from 'ngx-gallery';
+import { SingleModelComponent } from './pages/models/single-model/single-model.component';
+// /ngx-gallery
 @NgModule({
   declarations: [
     ClientFeaturesMain,
@@ -33,7 +35,8 @@ import { ModelsComponent } from './pages/models/models.component';
     ContactUsComponent,
     GalleryComponent,
     BookingComponent,
-    ModelsComponent
+    ModelsComponent,
+    SingleModelComponent
   ],
   imports: [
     CommonModule,
@@ -43,9 +46,10 @@ import { ModelsComponent } from './pages/models/models.component';
     SvgModule,
     AngularStickyThingsModule,
     MaterialModule,
-    AmdcModule
+    AmdcModule,
+    NgxGalleryModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  exports: [HomeComponent, ContactUsComponent, GalleryComponent, BookingComponent, ModelsComponent]
+  exports: [HomeComponent, ContactUsComponent, GalleryComponent, BookingComponent, ModelsComponent, SingleModelComponent]
 })
 export class ClientFeaturesModule { }

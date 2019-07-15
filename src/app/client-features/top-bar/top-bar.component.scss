@@ -74,4 +74,16 @@
             color: orange;
         }
     }
+    .nav-login{
+        display: flex;
+        align-items: center;
+        color: orange;
+        // position: absolute;
+        // right: -5%;
+        font-weight: bold;
+        cursor: pointer;
+        mat-icon{
+            margin-left: 5px; 
+        }
+    }
 }

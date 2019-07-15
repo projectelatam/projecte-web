@@ -11,5 +11,5 @@ export class ModelsComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  // https://stackblitz.com/edit/ngx-infinite-scroll
 }

@@ -1,0 +1,27 @@
+
+.booking-card{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px; 
+    mat-card-content{
+        display: flex;
+        flex-direction: row;
+        height: 200px;
+        .book-thumbnail{
+            width: 200px;
+            height: auto;
+            margin: 0;
+            margin-left: -16px;
+            margin-top: -16px;
+        }
+        p{
+            padding-top: 10px;
+        }    
+    }
+    .detail-content{
+        padding-left: 16px; 
+        mat-icon{
+            color: orange;
+        }
+    }
+}

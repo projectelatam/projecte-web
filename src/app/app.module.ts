@@ -17,6 +17,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { TestComponent } from './test/test.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AmdcModule } from './amdc/amdc.module';
+import { ServicesModule } from './services/services.module';
 // import { GtagModule } from 'angular-gtag';
 
 
@@ -46,6 +47,7 @@ import { AmdcModule } from './amdc/amdc.module';
     // end delete soon
     
     AmdcModule,
+    ServicesModule,
     // GtagModule.forRoot({ trackingId: 'GTM-MGB2KZ3', trackPageviews: true, debug: true })
   ],
   providers: [],
