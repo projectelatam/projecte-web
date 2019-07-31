@@ -8,17 +8,17 @@ import { ModelsService } from 'src/app/services/models.service';
 })
 export class HomeComponent implements OnInit {
   
-  public s = [1, 2, 3, 4, 5, 6, 7, 8 , 9];
   public models;
   constructor(public modelService: ModelsService) { }
 
   ngOnInit() {
-    this.models = this.modelService.getModels();
+    this.modelService.getModels().subscribe(data =>{
+      this.models = data;
+    });
   }
 
-  getImageUrl(i){
-    var id = i % 6 || 1;
-    return "assets/" + id + ".jpeg";
+  getImageUrl(url){
+    return "http://localhost:1337/" + url;
   }
 
 }

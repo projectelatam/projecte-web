@@ -1,72 +1,41 @@
 import { Injectable } from '@angular/core';
-
-interface ModelDetail {
-  skin: string;
-  height: number;
-  origin: string;
-  ethnicity: string
-  languages: string;
-  occupation: string;
-  personality: string;
-  age: number;
-  image: string;
-  rate: object;
-  tattos: string; //use enums
-  availability: string;
-  orientation: string;
-
-}
-interface Model {
-  id: number;
-  name: string;
-  description: string;
-  shortDesc:string;
-  details: ModelDetail;
-  category: number;
-  ImgProfile: string;
-  
-}
+import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ModelsService {
-  public models: Model[] = [
-    { 
-      id: 1,  
-      name: "fancisca",
-      description: 'an exotic upscale beauty that is a true “free spirit”.  Her gift of giving and then tuning into your energy will provide you with a uniqueness of understanding and fulfillment that will be felt in her favorite way of expression......body language!!!! ',
-      shortDesc: 'We are so glad for you to meet Ruby.......',
-      ImgProfile: '',
-      category: 1,
-      details: { 
-        skin: '',
-        height: 5.3,
-        origin: 'Venezuela',
-        ethnicity: 'Latin',
-        languages: 'Spanish, English',
-        occupation: 'Promoter',
-        personality: '',
-        age: 25,
-        image: '',
-        rate: {},
-        tattos: '',
-        availability: '',
-        orientation: 'hetero'
-      }
-    }
-  ];
-  
-  constructor() { }
+  public baseApiUrl = 'http://localhost:1337'
+  public modelUrl = 'models' // refactor to entity
+  //this.apiRoot
 
-  public getModels() {
-    return this.models;
+  constructor(private http: HttpClient) {
   }
 
-  public getModel(id){
-    console.log('id', id)
-    console.log('this.models.find(m => m.id == id)', this.models.find(m => m.id == id))
-    return this.models.find(m => m.id == id);
+  getModels(): Observable<any> {
+    // const url = `${this.baseApiUrl}/${this.modelUrl}/secondary-section`;
+    const url = `${this.baseApiUrl}/${this.modelUrl}/`;
+    return this.http.get<any>(url).pipe(catchError(this.handleError<any>('getModels')));
+  }
+  
+  public getModel(id): Observable<any> {
+    const url = `${this.baseApiUrl}/${this.modelUrl}/${id}`;
+    return this.http.get<any>(url).pipe(catchError(this.handleError<any>('getModel')));
+  }
+
+  /**
+   * Handle Http operation that failed.
+   * Let the app continue.
+   * @param operation - name of the operation that failed
+   * @param result - optional value to return as the observable result
+   */
+  protected handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
   }
 }

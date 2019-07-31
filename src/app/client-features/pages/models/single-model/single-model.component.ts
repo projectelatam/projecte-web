@@ -20,13 +20,15 @@ export class SingleModelComponent implements OnInit {
     public route: ActivatedRoute
   ) {
     this.modelId = +this.route.snapshot.params.id;
-    this.modelData = this.modelService.getModel(this.modelId);
-    this.model = new ModelsModelView(this.modelData);
-    console.log(this.model);
+    console.log(this.modelId);
+    this.modelService.getModel(this.modelId).subscribe(data => {
+      this.modelData = data;
+      this.model = new ModelsModelView(this.modelData);
+      this.addImages();
+    });
   }
 
   ngOnInit() {
-    console.log(this.modelService.getModels());
     this.galleryOptions = [
       {
         width: '100%',
@@ -37,7 +39,7 @@ export class SingleModelComponent implements OnInit {
       {
         breakpoint: 800,
         width: '100%',
-        height: '600px',
+        height: '830px',
         imagePercent: 80,
         thumbnailsPercent: 20,
         thumbnailsMargin: 20,
@@ -49,18 +51,20 @@ export class SingleModelComponent implements OnInit {
       }
     ];
     this.galleryImages = [];
-    this.addImages();
-
   }
 
-  public getImageUrl(i) {
-    var id = i % 6 || 1;
-    return "assets/" + id + ".jpeg";
+  public getImageUrl(url) {
+    return "http://localhost:1337/" + url;
   }
 
   public addImages() {
-    for (let index = 0; index < 9; index++) {
-      this.galleryImages.push({ small: this.getImageUrl(index), medium: this.getImageUrl(index), big: this.getImageUrl(index) })
+    const images = this.modelData.images;
+    for (let index = 0; index < images.length; index++) {
+      this.galleryImages.push({ 
+          small: this.getImageUrl(images[index].url),
+          medium: this.getImageUrl(images[index].url),
+          big: this.getImageUrl(images[index].url)
+        })
     }
   }
 }

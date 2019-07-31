@@ -20,7 +20,7 @@ import { AmdcModule } from './amdc/amdc.module';
 import { ServicesModule } from './services/services.module';
 import { DialogModule } from './dialog/dialog.module';
 // import { GtagModule } from 'angular-gtag';
-
+import { AuthenticationModule } from './shared';
 
 
 @NgModule({
@@ -32,6 +32,7 @@ import { DialogModule } from './dialog/dialog.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    AuthenticationModule,
     // NoopAnimationsModule,
     HttpClientModule,
     WidgetsModule,

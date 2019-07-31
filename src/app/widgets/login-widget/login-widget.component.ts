@@ -1,5 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AuthenticationService } from 'src/app/shared';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-widget',
@@ -8,8 +10,18 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class LoginWidgetComponent implements OnInit {
 
-  constructor() {}
+  constructor(
+    private router: Router,
+    private authService: AuthenticationService
+  ) {
+    this.login();
+  }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
+  public login() {
+    this.authService.login().subscribe(() => {
+      // this.router.navigateByUrl(this.authService.getInterruptedUrl())
+    });
+  }
 }
