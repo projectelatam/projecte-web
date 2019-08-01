@@ -37,4 +37,8 @@ export class FooterComponent implements OnInit {
     });
   }
 
+  logOut(){
+    this.authService.logout()
+  }
+
 }

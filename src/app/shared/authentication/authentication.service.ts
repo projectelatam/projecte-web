@@ -14,16 +14,17 @@ interface AccessData {
 @Injectable()
 export class AuthenticationService implements AuthService {
   public headers;
-  public token;
+  public token = '';
 
   constructor(
     private http: HttpClient,
     private tokenStorage: TokenStorage
-  ) { 
+  ) {
     this.getAccessToken()
-    .subscribe(token => {
-      this.token = token;
-    });
+      .subscribe(token => {
+        console.log('asscess token', token);
+        this.token = token;
+      });
   }
 
   /**
@@ -55,6 +56,8 @@ export class AuthenticationService implements AuthService {
    * @returns {Observable<any>}
    */
   public refreshToken(): Observable<AccessData> {
+    this.login();
+    return of({} as AccessData);
     return this.tokenStorage
       .getRefreshToken()
       .pipe(
@@ -114,21 +117,21 @@ export class AuthenticationService implements AuthService {
    * @private
    * @param {AccessData} data
    */
-  private saveAccessData({ accessToken, refreshToken }: AccessData) {
-    console.log(' asscess token save accessdata',accessToken);
+  private saveAccessData(accessToken) {
+    console.log(' asscess token save accessdata', accessToken);
+    
+    const accesTokenS = JSON.stringify(accessToken.jwt);
+    
     this.tokenStorage
-      .setAccessToken(accessToken)
-      .setRefreshToken(refreshToken);
+      .setAccessToken(accesTokenS.substring(1, accesTokenS.length-1))
+      .setRefreshToken(accesTokenS.substring(1, accesTokenS.length-1));
   }
 
   get(url: string): Observable<any> {
-
-    console.log('headers', this.getHeaderss());
-    return of('');
     return this.http.get<any>(url, { headers: this.getHeaderss() }).pipe(
       catchError(err => {
         if (err.status === 401 || err.state === 403) {
-          this.refreshToken();
+          // this.refreshToken();
         }
         return throwError(err);
       })
@@ -144,12 +147,15 @@ export class AuthenticationService implements AuthService {
   }
 
   private appendAuthHeader(headers: HttpHeaders) {
-      if (this.token === '') {
-        return headers;
-      }
-  
-      const tokenValue = 'Bearer ' + this.token;
-      return headers.set('Authorization', tokenValue);
+    const token = this.getAccessToken();
+
+    if (this.token === '') {
+      return headers;
+    }
+
+    console.log('appendAuthHeader',this.token);
+    const tokenValue = 'Bearer ' + this.token;
+    return headers.set('Authorization', tokenValue);
   }
 
 }

@@ -27,7 +27,8 @@ export class TokenStorage {
    * @returns {TokenStorage}
    */
   public setAccessToken(token: string): TokenStorage {
-    localStorage.setItem('accessToken', token);
+    console.log(localStorage.setItem('accessToken', token));
+    console.log(localStorage);
 
     return this;
   }

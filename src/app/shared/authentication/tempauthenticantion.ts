@@ -145,7 +145,7 @@ export class AuthenticationService implements AuthService {
       if (this.token === '') {
         return headers;
       }
-  
+      console.log('appendauthheader', this.token)
       const tokenValue = 'Bearer ' + this.token;
       return headers.set('Authorization', tokenValue);
   }
