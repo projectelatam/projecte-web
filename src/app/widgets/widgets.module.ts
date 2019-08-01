@@ -11,6 +11,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import { AmdcModule } from '../amdc/amdc.module';
 import { RouterModule } from '@angular/router';
 import { LoginWidgetComponent } from './login-widget/login-widget.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { LoginWidgetComponent } from './login-widget/login-widget.component';
     MaterialModule,
     OverlayModule,
     AmdcModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
     ],
   exports: [
     BookingWidgetComponent, 

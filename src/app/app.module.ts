@@ -22,6 +22,7 @@ import { DialogModule } from './dialog/dialog.module';
 // import { GtagModule } from 'angular-gtag';
 import { AuthenticationModule } from './shared';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,8 @@ import { AuthenticationModule } from './shared';
     ServicesModule,
     DialogModule,
     // GtagModule.forRoot({ trackingId: 'GTM-MGB2KZ3', trackPageviews: true, debug: true })
+    // FormsModule,
+    // ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -96,8 +96,8 @@ export class AuthenticationService implements AuthService {
    */
 
   public login(): Observable<any> {
-    return this.http.post(`http://localhost:1337/auth/local`, { identifier: 'client1', password: 'projectelatam' })
-      .pipe(tap((tokens) => this.saveAccessData(tokens)));
+    return this.http.post(`http://localhost:1337/auth/local`, { identifier: 'client1', password: '12345678' })
+      .pipe(tap((tokens: AccessData) => this.saveAccessData(tokens)));
   }
 
   /**
@@ -113,28 +113,26 @@ export class AuthenticationService implements AuthService {
    *
    * @private
    * @param {AccessData} data
-   */
+ [formGroup]="form"  */
   private saveAccessData({ accessToken, refreshToken }: AccessData) {
-    console.log(' asscess token save accessdata',accessToken);
     this.tokenStorage
       .setAccessToken(accessToken)
       .setRefreshToken(refreshToken);
   }
 
   get(url: string): Observable<any> {
-
-    console.log('headers', this.getHeaderss());
     return of('');
+    console.log( this.getHeaderss())
+    // return of('')
     return this.http.get<any>(url, { headers: this.getHeaderss() }).pipe(
       catchError(err => {
-        if (err.status === 401 || err.state === 403) {
-          this.refreshToken();
-        }
+        // if (err.status === 401 || err.state === 403) {
+        //   this.refreshToken();
+        // }
         return throwError(err);
       })
     );
   }
-
 
   private getHeaderss() {
     let headers = new HttpHeaders();

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginDialogComponent } from 'src/app/dialog/login-dialog/login-dialog.component';
+import { AuthenticationService } from 'src/app/shared';
 
 @Component({
   selector: 'app-footer',
@@ -10,11 +11,18 @@ import { LoginDialogComponent } from 'src/app/dialog/login-dialog/login-dialog.c
 export class FooterComponent implements OnInit {
   
   animal: any;
-  constructor(public dialog: MatDialog) {
-    
+  constructor(
+    public dialog: MatDialog,
+    private authService: AuthenticationService
+    ) {
+      this.authService.get('http://localhost:1337/rerservations').subscribe(d => {
+        console.log('auth', d)
+      });
    }
 
   ngOnInit() {
+
+
   }
 
   openDialog(): void { // move the button tu its own component
