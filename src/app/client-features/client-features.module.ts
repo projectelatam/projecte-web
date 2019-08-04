@@ -24,6 +24,7 @@ import { ModelsComponent } from './pages/models/models.component';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { SingleModelComponent } from './pages/models/single-model/single-model.component';
 import { LoginWidgetComponent } from '../widgets/login-widget/login-widget.component';
+import { PanelModule } from '../panel/panel.module';
 // /ngx-gallery
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { LoginWidgetComponent } from '../widgets/login-widget/login-widget.compo
     AngularStickyThingsModule,
     MaterialModule,
     AmdcModule,
-    NgxGalleryModule
+    NgxGalleryModule,
+    PanelModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   exports: [

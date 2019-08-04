@@ -15,6 +15,8 @@ interface AccessData {
 export class AuthenticationService implements AuthService {
   public headers;
   public token = '';
+  public isAuthorizedUser = false;
+  public user = null;
 
   constructor(
     private http: HttpClient,
@@ -24,7 +26,18 @@ export class AuthenticationService implements AuthService {
       .subscribe(token => {
         console.log('asscess token', token);
         this.token = token;
+        this.user =  this.getUser();
+        // this.isAuthorized().subscribe(a =>{ this.isAuthorizedUser = a});
       });
+    this.isAuthorized().subscribe(a => { this.isAuthorizedUser = a });
+  }
+
+  public getUser(){
+    return JSON.parse(localStorage.getItem('user'));
+  }
+
+  public saveRedirect(url){
+    //implement
   }
 
   /**
@@ -56,7 +69,7 @@ export class AuthenticationService implements AuthService {
    * @returns {Observable<any>}
    */
   public refreshToken(): Observable<AccessData> {
-    this.login();
+    // this.login();
     return of({} as AccessData);
     return this.tokenStorage
       .getRefreshToken()
@@ -98,8 +111,8 @@ export class AuthenticationService implements AuthService {
    * EXTRA AUTH METHODS
    */
 
-  public login(): Observable<any> {
-    return this.http.post(`http://localhost:1337/auth/local`, { identifier: 'client1', password: 'projectelatam' })
+  public login(user?, password?): Observable<any> {
+    return this.http.post(`http://localhost:1337/auth/local`, { identifier: user, password: password })
       .pipe(tap((tokens) => this.saveAccessData(tokens)));
   }
 
@@ -108,6 +121,7 @@ export class AuthenticationService implements AuthService {
    */
   public logout(): void {
     this.tokenStorage.clear();
+    localStorage.removeItem('user');
     location.reload(true);
   }
 
@@ -119,12 +133,12 @@ export class AuthenticationService implements AuthService {
    */
   private saveAccessData(accessToken) {
     console.log(' asscess token save accessdata', accessToken);
-    
+
     const accesTokenS = JSON.stringify(accessToken.jwt);
-    
+    localStorage.setItem('user', JSON.stringify(accessToken.user))
     this.tokenStorage
-      .setAccessToken(accesTokenS.substring(1, accesTokenS.length-1))
-      .setRefreshToken(accesTokenS.substring(1, accesTokenS.length-1));
+      .setAccessToken(accesTokenS.substring(1, accesTokenS.length - 1))
+      .setRefreshToken(accesTokenS.substring(1, accesTokenS.length - 1));
   }
 
   get(url: string): Observable<any> {
@@ -153,7 +167,7 @@ export class AuthenticationService implements AuthService {
       return headers;
     }
 
-    console.log('appendAuthHeader',this.token);
+    console.log('appendAuthHeader', this.token);
     const tokenValue = 'Bearer ' + this.token;
     return headers.set('Authorization', tokenValue);
   }

@@ -8,6 +8,8 @@ import { BookingComponent } from './pages/booking/booking.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { ModelsComponent } from './pages/models/models.component';
 import { SingleModelComponent } from './pages/models/single-model/single-model.component';
+import { UserComponent } from '../panel/user/user.component';
+import { AuthorizationGuard } from '../shared/guards/authorization.guard';
 
 
 const routes: Routes = [
@@ -21,7 +23,9 @@ const routes: Routes = [
       { path: 'contact', component: ContactUsComponent, pathMatch: 'full' },
       { path: 'gallery', component: GalleryComponent, pathMatch: 'full' },
       { path: 'models', component: ModelsComponent, pathMatch: 'full' },
-      { path: 'models/:id', component: SingleModelComponent, pathMatch: 'full' }
+      { path: 'models/:id', component: SingleModelComponent, pathMatch: 'full' },
+      { path: 'user', component: UserComponent, pathMatch: 'full', canActivate: [AuthorizationGuard]}
+
     ]
     
       //#region Credit Cards

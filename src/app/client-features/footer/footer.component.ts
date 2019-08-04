@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginDialogComponent } from 'src/app/dialog/login-dialog/login-dialog.component';
 import { AuthenticationService } from 'src/app/shared';
+import { HelperServiceService } from 'src/app/shared/helper-service.service';
 
 @Component({
   selector: 'app-footer',
@@ -9,16 +10,17 @@ import { AuthenticationService } from 'src/app/shared';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  
+
   animal: any;
   constructor(
     public dialog: MatDialog,
-    private authService: AuthenticationService
-    ) {
-      this.authService.get('http://localhost:1337/rerservations').subscribe(d => {
-        console.log('auth', d)
-      });
-   }
+    public authService: AuthenticationService,
+    public hm: HelperServiceService
+  ) {
+    // this.authService.get('http://localhost:1337/rerservations').subscribe(d => {
+    //   console.log('auth', d)
+    // });
+  }
 
   ngOnInit() {
 
@@ -28,7 +30,7 @@ export class FooterComponent implements OnInit {
   openDialog(): void { // move the button tu its own component
     const dialogRef = this.dialog.open(LoginDialogComponent, {
       width: '250px',
-      data: {name: 'sds', animal: 'dsds'}
+      data: { name: 'sds', animal: 'dsds' }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -37,7 +39,7 @@ export class FooterComponent implements OnInit {
     });
   }
 
-  logOut(){
+  logOut() {
     this.authService.logout()
   }
 

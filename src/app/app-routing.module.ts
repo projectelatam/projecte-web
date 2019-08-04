@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthorizationGuard } from './shared/guards/authorization.guard';
 
 
 const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./client-features/client-features.module').then(m => m.ClientFeaturesModule)
-  }
+  },
+  // {
+  //   path: 'panel',
+  //   loadChildren: './panel/panel.module#PanelModule',
+  //   canLoad: [AuthorizationGuard]
+  // },
   // {
   //   path: '',
   //   loadChildren: './client-features/client-features.module#ClientFeaturesModule'

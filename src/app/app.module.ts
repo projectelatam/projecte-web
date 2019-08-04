@@ -20,9 +20,11 @@ import { AmdcModule } from './amdc/amdc.module';
 import { ServicesModule } from './services/services.module';
 import { DialogModule } from './dialog/dialog.module';
 // import { GtagModule } from 'angular-gtag';
-import { AuthenticationModule } from './shared';
+import { AuthenticationModule, AuthenticationService } from './shared';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PanelModule } from './panel/panel.module';
+import { AuthorizationGuard } from './shared/guards/authorization.guard';
 
 @NgModule({
   declarations: [
@@ -52,11 +54,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AmdcModule,
     ServicesModule,
     DialogModule,
+    PanelModule,
     // GtagModule.forRoot({ trackingId: 'GTM-MGB2KZ3', trackPageviews: true, debug: true })
     // FormsModule,
     // ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthorizationGuard, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

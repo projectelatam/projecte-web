@@ -13,7 +13,7 @@ export class LoginWidgetComponent implements OnInit {
   form: FormGroup;
   constructor(
     private router: Router,
-    private authService: AuthenticationService,
+    public authService: AuthenticationService,
     private fb: FormBuilder
   ) {
 
@@ -21,26 +21,22 @@ export class LoginWidgetComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
-    this.login();
+    //this.login(); //delete this line
   }
 
   ngOnInit() { }
 
   public login() {
-    // const val = this.form.value;
+    const val = this.form.value;
 
-    // if (val.email && val.password) {
-    //     this.authService.login(val.email, val.password)
-    //         .subscribe(
-    //             () => {
-    //                 console.log("User is logged in");
-    //                 this.router.navigateByUrl('/');
-    //             }
-    //         );
-    // }
-    this.authService.login().subscribe((s) => {
-      console.log('afterlogin data', s);
-      // this.router.navigateByUrl(this.authService.getInterruptedUrl())
-    });
+    if (val.username && val.password) {
+      this.authService.login(val.username, val.password).subscribe(s => {
+        console.log("User is logged in");
+        console.log('afterlogin data', s);
+        // this.router.navigateByUrl('/');
+        location.reload(true);
+        // this.router.navigateByUrl(this.authService.getInterruptedUrl())
+      });
+    }
   }
 }
