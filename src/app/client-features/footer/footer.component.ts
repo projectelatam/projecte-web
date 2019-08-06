@@ -13,7 +13,6 @@ export class FooterComponent implements OnInit {
 
   animal: any;
   constructor(
-    public dialog: MatDialog,
     public authService: AuthenticationService,
     public hm: HelperServiceService
   ) {
@@ -28,15 +27,7 @@ export class FooterComponent implements OnInit {
   }
 
   openDialog(): void { // move the button tu its own component
-    const dialogRef = this.dialog.open(LoginDialogComponent, {
-      width: '250px',
-      data: { name: 'sds', animal: 'dsds' }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.animal = result;
-    });
+    this.hm.OpenLoginDialog();
   }
 
   logOut() {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import * as $ from 'jquery';
 import { ViewEncapsulation } from '@angular/compiler/src/core';
+import { GeneralService } from 'src/app/services/general.service';
 // declare var jQuery: any;
 // declare var $ : any;
 @Component({
@@ -10,11 +11,14 @@ import { ViewEncapsulation } from '@angular/compiler/src/core';
   // encapsulation: ViewEncapsulation.None
 })
 export class SilderComponent implements OnInit {
-  public images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
 
-  constructor() { }
+  public images = [];
+  constructor(public generalService: GeneralService) { }
 
   ngOnInit() {
+    this.generalService.getSliderImages().subscribe(i => {
+      this.images = i;
+    });
     // window['$'] = window['jQuery'] = $;
     // console.log('documenta data',$(document));
     // $(document).ready(function(){

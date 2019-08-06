@@ -1,5 +1,6 @@
 <div class="row justify-content-center">
   <div class="col-8 text-center">
+    <p *ngIf="auth.isAuthorizedUser">Welcome back, {{auth.getUser()?.username}}</p>
     <h1 class="title-nfasis"><span class="underline">Why</span> Choose Us</h1>
     <p>Your confidence in our ability to assist you with a "dream come true" experience will be rewarded with
       exceptional
@@ -20,7 +21,7 @@
       <!--Card image-->
 
       <!-- class="g-image image-fluid" -->
-      <img mat-card-image [src]="getImageUrl(model.imgProfile.url)" alt="Photo of a Shiba Inu">
+      <img mat-card-image [src]="getImageUrl(model.imgProfile?.url)" alt="Photo of a Shiba Inu">
       <div class="mask rgba-white-light">.</div>
 
       <!-- <div class="g-image" mat-card-image> -->

@@ -16,8 +16,9 @@ export class BookingWidgetComponent implements OnInit {
 
   public houseStay = [
     // { value: '', disabled: false },
+    { value: 'penthouse', viewValue: 'penthouse' },
     { value: 'villa', viewValue: 'Villa' },
-    { value: 'Suite', viewValue: 'Suite' },
+    { value: 'bungalo', viewValue: 'bungalo' },
   ];
   
   constructor() { }

@@ -4,16 +4,22 @@
       <div class="col-4"></div>
       <div class="col-4"></div>
       <div class="col-4 justify-content-end">
-        <button mat-raised-button color="primary" (click)="openDialog()" class="login" *ngIf="!authService.isAuthorizedUser" >
-          <span><mat-icon matSuffix fontSet="fa" fontIcon="fa-address-card"></mat-icon>Login</span>
+        <button mat-raised-button color="primary" (click)="openDialog()" class="login"
+          *ngIf="!authService.isAuthorizedUser">
+          <span>
+            <mat-icon matSuffix fontSet="fa" fontIcon="fa-address-card"></mat-icon>Login
+          </span>
+        </button>
+        <button *ngIf="authService.isAuthorizedUser" mat-raised-button color="primary" [routerLink]="['/user']">
+          My account
         </button>
         <button (click)='logOut()' *ngIf="authService.isAuthorizedUser" mat-raised-button color="accent" class="logout">
           <!-- <mat-icon matSuffix fontSet="fa" fontIcon="fa-address-card"></mat-icon> -->
-           logout -
+          logout -
 
-           {{ authService.user.username }}
+          {{ authService.user.username }}
         </button>
-        
+
       </div>
     </div>
   </div>

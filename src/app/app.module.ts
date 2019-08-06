@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { WidgetsModule } from './widgets/widgets.module';
 import { SvgModule } from './svg/svg.module';
@@ -25,6 +25,7 @@ import { AuthenticationModule, AuthenticationService } from './shared';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PanelModule } from './panel/panel.module';
 import { AuthorizationGuard } from './shared/guards/authorization.guard';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { AuthorizationGuard } from './shared/guards/authorization.guard';
     HttpClientModule,
     WidgetsModule,
     SvgModule,
-    
+
     //delete soon
     MatInputModule,
     LayoutModule,
@@ -50,7 +51,7 @@ import { AuthorizationGuard } from './shared/guards/authorization.guard';
     MatIconModule,
     MatListModule,
     // end delete soon
-    
+
     AmdcModule,
     ServicesModule,
     DialogModule,
@@ -59,7 +60,14 @@ import { AuthorizationGuard } from './shared/guards/authorization.guard';
     // FormsModule,
     // ReactiveFormsModule
   ],
-  providers: [AuthorizationGuard, AuthenticationService],
+  providers: [
+    AuthorizationGuard,
+    AuthenticationService,
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: { displayDefaultIndicatorType: false }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

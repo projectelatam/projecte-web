@@ -12,13 +12,15 @@ import { AmdcModule } from '../amdc/amdc.module';
 import { RouterModule } from '@angular/router';
 import { LoginWidgetComponent } from './login-widget/login-widget.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { WizardWidgetComponent } from './wizard-widget/wizard-widget.component';
 
 @NgModule({
   declarations: [
     BookingWidgetComponent, 
     ContactWidgetComponent, 
     NewsletterWidgetComponent,
-    LoginWidgetComponent
+    LoginWidgetComponent,
+    WizardWidgetComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BookingWidgetComponent, 
     ContactWidgetComponent, 
     NewsletterWidgetComponent, 
-    LoginWidgetComponent
+    LoginWidgetComponent,
+    WizardWidgetComponent
   ], 
   providers: [],
 })

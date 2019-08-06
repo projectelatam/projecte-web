@@ -1,15 +1,19 @@
 <h1 class="title-nfasis"><span class="underline">Book</span>ing</h1>
 <div class="row">
-    <div class="col-3">
+    <!-- <div class="col-3">
         <app-booking-widget class="position-sticky"></app-booking-widget>
-    </div>
-    <div class="col-9">
-        <ng-container *ngFor="let place of places">
+    </div> -->
+    <div class="col-12">
+        <!-- <div class="col-9"> -->
+        <ng-container *ngFor="let place of accomodations">
             <mat-card class="booking-card">
+                <div>
+     
+                </div>
+                <!-- design packages to show acooomodations -->
                 <mat-card-content>
-                    <img mat-card-image
-                        src="https://odis.homeaway.com/odis/listing/7e04139f-1678-4a69-a9dc-d86be6bd80c6.c10.jpg"
-                        alt="Photo of a Shiba Inu" class="book-thumbnail">
+                    <img mat-card-image [src]="'http://localhost:1337/'+place.accommodation.profile?.url" alt="Photo of a Shiba Inu"
+                        class="book-thumbnail">
                     <div class="detail-content">
                         <div>
                             <div class="row">
@@ -39,13 +43,13 @@
                         </div>
                         <mat-card-actions class="d-flex justify-content-end">
                             <button mat-button>Details</button>
-                            <button mat-raised-button color="primary">Book now!</button>
+                            <button mat-raised-button color="primary" (click)="openDialog('theid')">Book now!</button>
                         </mat-card-actions>
                     </div>
                 </mat-card-content>
             </mat-card>
         </ng-container>
-        <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
-        </mat-paginator>
+        <!-- <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+        </mat-paginator> -->
     </div>
 </div>

@@ -31,7 +31,7 @@
                     </mdc-helper-text> -->
 
 
-                    <mat-radio-group aria-label="Select an option">
+                    <!-- <mat-radio-group aria-label="Select an option">
                         <mat-radio-button value="1">Pakages</mat-radio-button>
                         <mat-radio-button value="2">By Stay</mat-radio-button>
                     </mat-radio-group>
@@ -43,8 +43,17 @@
                                 {{stay.viewValue}}
                             </mat-option>
                         </mat-select>
+                    </mat-form-field> -->
+
+
+                    <mat-form-field appearance="fill" class="stay-select">
+                        <mat-label>Stay</mat-label>
+                        <mat-select name="stay">
+                            <mat-option *ngFor="let stay of houseStay" [value]="stay.value">
+                                {{stay.viewValue}}
+                            </mat-option>
+                        </mat-select>
                     </mat-form-field>
-             
 
                     <!-- <mat-form-field>
                         <mat-select placeholder="Stay Type" multiple>

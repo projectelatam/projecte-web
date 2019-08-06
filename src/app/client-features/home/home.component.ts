@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModelsService } from 'src/app/services/models.service';
+import { AuthenticationService } from 'src/app/shared';
+
 
 @Component({
   selector: 'app-home',
@@ -7,17 +9,20 @@ import { ModelsService } from 'src/app/services/models.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  
+
   public models;
-  constructor(public modelService: ModelsService) { }
+  constructor(
+    public modelService: ModelsService,
+    public auth: AuthenticationService
+  ) { }
 
   ngOnInit() {
-    this.modelService.getModels().subscribe(data =>{
+    this.modelService.getModels().subscribe(data => {
       this.models = data;
     });
   }
 
-  getImageUrl(url){
+  getImageUrl(url) {
     return "http://localhost:1337/" + url;
   }
 

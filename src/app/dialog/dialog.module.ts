@@ -7,11 +7,13 @@ import { SvgModule } from '../svg/svg.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from '../material/material.module';
 import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
+import { WizardDialogComponent } from './wizard-dialog/wizard-dialog.component';
 
 @NgModule({
   declarations: [
     LoginDialogComponent,
     RegisterDialogComponent,
+    WizardDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -23,10 +25,12 @@ import { RegisterDialogComponent } from './register-dialog/register-dialog.compo
   ],
   exports: [
     LoginDialogComponent,
-    RegisterDialogComponent
+    RegisterDialogComponent,
+    WizardDialogComponent
   ],
   entryComponents: [
-    LoginDialogComponent
+    LoginDialogComponent,
+    WizardDialogComponent
   ]
 })
 export class DialogModule { }

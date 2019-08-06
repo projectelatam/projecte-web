@@ -32,7 +32,7 @@ export class SingleModelComponent implements OnInit {
     this.galleryOptions = [
       {
         width: '100%',
-        height: '550px',
+        height: '830px',
         thumbnailsColumns: 4,
         imageAnimation: NgxGalleryAnimation.Slide
       },

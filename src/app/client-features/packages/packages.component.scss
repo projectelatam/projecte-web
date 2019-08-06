@@ -2,11 +2,13 @@
 .package-container{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .package{
     max-width: 300px;
     width: 100%;
+    margin-bottom: 30px;
     mat-card-header{
         margin: -16px -16px 0 -16px;
         padding: 16px;
@@ -30,5 +32,9 @@
     mat-card-actions{
         display: flex;
         justify-content: center;
+    }
+    a{
+        color: orange;
+        display: contents;
     }
 }
