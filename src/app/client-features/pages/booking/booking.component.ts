@@ -30,7 +30,7 @@ export class BookingComponent implements OnInit {
   }
 
   public openDialog(packageId) {
-    this.hm.OpenWizardDialog();
+    // this.hm.OpenWizardDialog();
   }
 
   ngOnInit() {
