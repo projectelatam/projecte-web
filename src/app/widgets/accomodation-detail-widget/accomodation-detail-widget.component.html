@@ -1,0 +1,73 @@
+<h1 class="title-nfasis"><span class="underline">{{data.data.type}} Deta</span>ils</h1>
+<div class="row">
+    <div class="col-5">
+        <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class=""></ngx-gallery>
+        <div class="desc">
+            <!-- <h3 class="title-nfasis">
+                <span class="underline">Abo</span>ut
+            </h3> -->
+            <div class="ammenities">
+                <div class="row">
+                    <!-- make a component for the ammenities -->
+                    <div class="col">
+                        <span>
+                            <mat-icon>local_hotel</mat-icon>&nbsp;
+                            <b>{{data.data.rooms}} Bedrooms</b>
+                        </span>
+                    </div>
+                    <div class="col">
+                        <span>
+                            <mat-icon>people</mat-icon>&nbsp;
+                            <b>3 People Max</b>
+                        </span>
+                    </div>
+                    <div class="col">
+                        <span>
+                            <mat-icon>pool</mat-icon>&nbsp;
+                            <b>Pool</b>
+                        </span>
+                    </div>
+                    <div class="col">
+                        <span>
+                            <mat-icon>pool</mat-icon>&nbsp;
+                            <b>Jacuzzi</b>
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <mat-icon>ac_unit</mat-icon>&nbsp;
+                        <b>Air Conditioner</b>
+                    </div>
+                    <div class="col">
+                        <mat-icon>beach_access</mat-icon>&nbsp;
+                        <b>Beach On site</b>
+                    </div>
+                    <div class="col">
+                        <mat-icon>airport_shuttler</mat-icon>&nbsp;
+                        <b>Airport Transfer</b>
+                    </div>
+                    <div class="col">
+                        <mat-icon>all_inclusive</mat-icon>&nbsp;
+                        <b>all Inclusive</b>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-7">
+        <p>{{ data.data.description }}</p>
+        <!-- <mat-card>
+            <ng-container *ngFor="let item of this.model.myList">
+                <mat-list>
+                    <mat-list-item><strong>{{item.name}}:</strong> &nbsp; {{item.value}} </mat-list-item>
+                </mat-list>
+            </ng-container>
+            <button mat-flat-button color="primary" class="reserve-botom">Reservation</button>
+        </mat-card> -->
+    </div>
+</div>

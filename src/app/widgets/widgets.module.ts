@@ -13,6 +13,9 @@ import { RouterModule } from '@angular/router';
 import { LoginWidgetComponent } from './login-widget/login-widget.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WizardWidgetComponent } from './wizard-widget/wizard-widget.component';
+import { BookCardPackageComponent } from './book-card-package/book-card-package.component';
+import { AccomodationDetailWidgetComponent } from './accomodation-detail-widget/accomodation-detail-widget.component';
+import { NgxGalleryModule } from 'ngx-gallery';
 
 @NgModule({
   declarations: [
@@ -20,11 +23,14 @@ import { WizardWidgetComponent } from './wizard-widget/wizard-widget.component';
     ContactWidgetComponent, 
     NewsletterWidgetComponent,
     LoginWidgetComponent,
-    WizardWidgetComponent
+    WizardWidgetComponent,
+    BookCardPackageComponent,
+    AccomodationDetailWidgetComponent
   ],
   imports: [
     CommonModule,
     MDBBootstrapModule,
+    NgxGalleryModule,
     SvgModule,
     NgbModule,
     MaterialModule,
@@ -39,7 +45,9 @@ import { WizardWidgetComponent } from './wizard-widget/wizard-widget.component';
     ContactWidgetComponent, 
     NewsletterWidgetComponent, 
     LoginWidgetComponent,
-    WizardWidgetComponent
+    WizardWidgetComponent,
+    BookCardPackageComponent,
+    AccomodationDetailWidgetComponent
   ], 
   providers: [],
 })

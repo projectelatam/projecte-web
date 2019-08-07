@@ -6,20 +6,35 @@
                     <mat-card-title>Booking</mat-card-title>
                 </mat-card-header>
                 <mat-card-content>
-                    <mat-form-field color="accent" appearance="fill">
-                        <mat-label>Check In</mat-label>
-                        <input matInput [matDatepicker]="picker1">
-                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                        <mat-datepicker #picker1></mat-datepicker>
+                    <mat-form-field appearance="fill" class="stay-select">
+                        <mat-label>Available Nights</mat-label>
+                        <mat-select name="night" [(ngModel)]="nights">
+                            <mat-option *ngFor="let night of Snights" [value]="night.value">
+                                {{night.viewValue}}
+                            </mat-option>
+                        </mat-select>
                     </mat-form-field>
-
-                    <mat-form-field color="accent" appearance="fill">
-                        <mat-label>Check out</mat-label>
-                        <input matInput [matDatepicker]="picker2">
-                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                        <mat-datepicker #picker2 color="primary"></mat-datepicker>
-                    </mat-form-field>
-
+                    
+                    <div class="row no-gutters change-gutter">
+                        <div class="col">
+                            <mat-form-field color="accent" appearance="fill">
+                                <mat-label>Check In</mat-label>
+                                <!-- openedStream -->
+                                <!-- 3 days in advance -->
+                                <input matInput [matDatepicker]="picker1" [(ngModel)]="checkin"  (dateInput)="dateValidation($event)" [max]="checkout">
+                                <mat-datepicker-toggle matSuffix [for]="picker1"  matTooltip="Book with 3 days in advance"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                        <div class="col">
+                            <mat-form-field color="accent" appearance="fill">
+                                <mat-label>Check out</mat-label>
+                                <input matInput [matDatepicker]="picker2" [(ngModel)]="checkout" (dateInput)="dateValidation($event)" [min]="checkin">
+                                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                    </div>
                     <!-- <mdc-select #meal [helperText]="mealHelper" required placeholder="Pick a Meal" autosize>
                         <mdc-icon mdcSelectIcon>fastfood</mdc-icon>
                         <option *ngFor="let food of foods" [value]="food.value" [disabled]="food.disabled">
@@ -48,12 +63,23 @@
 
                     <mat-form-field appearance="fill" class="stay-select">
                         <mat-label>Stay</mat-label>
-                        <mat-select name="stay">
+                        <mat-select name="stay" [(ngModel)]="stay">
                             <mat-option *ngFor="let stay of houseStay" [value]="stay.value">
                                 {{stay.viewValue}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
+
+                    <mat-form-field appearance="fill" class="stay-select">
+                        <mat-label>Package Type</mat-label>
+                        <mat-select name="packageType" [(ngModel)]="packageType">
+                            <mat-option *ngFor="let p of packageTypes" [value]="p.value">
+                                {{p.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+
 
                     <!-- <mat-form-field>
                         <mat-select placeholder="Stay Type" multiple>
@@ -91,7 +117,9 @@
 
                 <mat-card-actions>
                     <div class="example-button-row">
-                        <button mat-raised-button color="primary" [routerLink]="'/booking'">Book Now</button>
+                        <button mat-raised-button color="primary" [routerLink]="'/booking'"
+                            [queryParams]="{packageType: this.packageType, stay: this.stay, chin: checkin, chot: checkout}">Book
+                            Now</button>
                     </div>
                 </mat-card-actions>
             </div>

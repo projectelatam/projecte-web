@@ -2,10 +2,38 @@
     <mat-step [stepControl]="firstFormGroup">
 
         <form [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>Fill out your name</ng-template>
-            <mat-form-field>
-                <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-            </mat-form-field>
+            <!-- title tab -->
+            <ng-template matStepLabel>Fill Your Dates</ng-template>
+
+            <div class="row">
+                <div class="col-2">
+                    <mat-form-field color="accent" appearance="fill">
+                        <mat-label>Check In</mat-label>
+                        <!-- openedStream -->
+                        <!-- 3 days in advance -->
+                        <input matInput [matDatepicker]="picker1" formControlName="data.params.chin"
+                            [max]="data.params.chon">
+                        <mat-datepicker-toggle matSuffix [for]="picker1" matTooltip="Book with 3 days in advance">
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="col-2">
+                    <mat-form-field color="accent" appearance="fill">
+                        <mat-label>Check out</mat-label>
+                        <input matInput [matDatepicker]="picker2" formControlName="data.params.chon"
+                            [min]="data.params.chin">
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="err"> {{dateMessage}}</div>
+
+            <h6 class="title-nfasis"><span class="underline">Choosen Package</span></h6>
+            <app-book-card-package [package]="data.package" [expanded]="true" class="package" [normalState]="true">
+            </app-book-card-package>
+
             <div>
                 <button mat-button matStepperNext>Next</button>
             </div>
@@ -16,10 +44,13 @@
     <mat-step [stepControl]="secondFormGroup" [optional]="true" label="Step 1" state="phone">
 
         <form [formGroup]="secondFormGroup">
-            <ng-template matStepLabel>Fill out your address</ng-template>
-            <mat-form-field>
+            <ng-template matStepLabel>Fill out your Card Info</ng-template>
+            <!-- <mat-form-field>
                 <input matInput placeholder="Address" formControlName="secondCtrl" required>
-            </mat-form-field>
+            </mat-form-field> -->
+            <div>
+                <img src="/assets/cards.gif" class="card" />
+            </div>
             <div>
                 <button mat-button matStepperPrevious>Back</button>
                 <button mat-button matStepperNext>Next</button>

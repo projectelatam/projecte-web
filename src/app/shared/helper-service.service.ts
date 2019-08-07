@@ -3,6 +3,7 @@ import { AuthenticationService } from './authentication/authentication.service';
 import { MatDialog } from '@angular/material/dialog';
 import { WizardDialogComponent } from '../dialog/wizard-dialog/wizard-dialog.component';
 import { LoginDialogComponent } from '../dialog/login-dialog/login-dialog.component';
+import { AccomodationDialogComponent } from '../dialog/accomodation-dialog/accomodation-dialog.component';
 @Injectable({
   providedIn: 'root',
 })
@@ -19,9 +20,10 @@ export class HelperServiceService {
   }
 
   // refactor with a switch
-  public OpenWizardDialog() { 
+  public OpenWizardDialog(aPackage, params) {
     const dialogRef = this.dialog.open(WizardDialogComponent, {
       width: '90%',
+      data: { package: aPackage, params: params }
     });
     dialogRef.afterClosed().subscribe(result => {
     });
@@ -30,6 +32,15 @@ export class HelperServiceService {
   public OpenLoginDialog() {
     const dialogRef = this.dialog.open(LoginDialogComponent, {
       width: '250px',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+
+  public OpenAccomodationDialog(id, params = {}) {
+    const dialogRef = this.dialog.open(AccomodationDialogComponent, {
+      width: '90%',
+      data: { data: id, params: params } //right now is not an id but the whole object
     });
     dialogRef.afterClosed().subscribe(result => {
     });
@@ -53,4 +64,13 @@ export class HelperServiceService {
       this.isAuthorized = a;
     });
   }
+
+
 }
+
+
+// export enum accomodationType{
+//   standard = 'Penthouse',
+//   medium = 'villa',
+//   premium = 'bungalo'
+// }

@@ -5,51 +5,8 @@
     </div> -->
     <div class="col-12">
         <!-- <div class="col-9"> -->
-        <ng-container *ngFor="let place of accomodations">
-            <mat-card class="booking-card">
-                <div>
-     
-                </div>
-                <!-- design packages to show acooomodations -->
-                <mat-card-content>
-                    <img mat-card-image [src]="'http://localhost:1337/'+place.accommodation.profile?.url" alt="Photo of a Shiba Inu"
-                        class="book-thumbnail">
-                    <div class="detail-content">
-                        <div>
-                            <div class="row">
-                                <div class="col">
-                                    <!-- <mat-icon>local_hotel</mat-icon>&nbsp; -->
-                                    <b>2 Bedrooms</b>
-                                </div>
-                                <div class="col">
-                                    <!-- <mat-icon>local_hotel</mat-icon>&nbsp; -->
-                                    <b>3 Bathrooms</b>
-                                </div>
-                                <div class="col">
-                                    <!-- <mat-icon>local_hotel</mat-icon>&nbsp; -->
-                                    <b>Pool</b>
-                                </div>
-                                <div class="col">
-                                    <!-- <mat-icon>local_hotel</mat-icon>&nbsp; -->
-                                    <b>Jacuzzi</b>
-                                </div>
-
-                            </div>
-                            <mat-divider></mat-divider>
-                            <p>
-                                Located in Pedro Brand, Purple Gate Villa has accommodations with a private pool, a
-                                patio and pool views. With garden views, this property provides a balcony.
-                            </p>
-                        </div>
-                        <mat-card-actions class="d-flex justify-content-end">
-                            <button mat-button>Details</button>
-                            <button mat-raised-button color="primary" (click)="openDialog('theid')">Book now!</button>
-                        </mat-card-actions>
-                    </div>
-                </mat-card-content>
-            </mat-card>
+        <ng-container *ngFor="let package of packages">
+            <app-book-card-package [package]="package" [expanded]="shouldExpand(package.accommodation)" [params]="params"></app-book-card-package>
         </ng-container>
-        <!-- <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
-        </mat-paginator> -->
     </div>
 </div>

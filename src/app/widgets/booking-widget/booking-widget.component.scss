@@ -13,7 +13,7 @@
     .card{
         border-top: 4px solid orange; //play with the eges
         // padding: 15px;
-        max-width: 230px;
+        max-width: 300px;
         width: 100%;
         height: 100%;
         // display: flex;
@@ -58,4 +58,29 @@
             margin-right: 7px;
         }
     }
+}
+
+// create a mixin and directive for this gutter change
+//  .change-gutter .col:not(:first-child,:last-child) { //this only work for 3 up
+//     padding-right:7px!important;
+//     padding-left:7px!important;
+// }
+
+.change-gutter .col{
+    &:first-child {
+        margin-right: 10px;
+    }
+    // &:last-child {
+        
+    // }
+}
+
+
+.mat-card-actions{
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.mat-card-content {
+     margin-bottom: 0;
 }

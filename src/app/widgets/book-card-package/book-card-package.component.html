@@ -1,0 +1,100 @@
+<!-- class="{{package.accommodation.type}}" -->
+<mat-accordion class="{{package.accommodation.roomType}} book-card" matTooltip="{{package.accommodation.type}}">
+    <mat-expansion-panel [expanded]="expanded">
+        <!-- [expanded]="step === 0" (opened)="setStep(0)" hideToggle -->
+        <mat-expansion-panel-header>
+            <!-- <div class="row">
+                <div class="col"> -->
+                    <mat-panel-title>
+                        <span>
+                            <mat-icon fontSet="fa" fontIcon="fa-diamond" class="card-icon"></mat-icon>
+                            {{package.name}} PACKAGE
+                        </span>
+                    </mat-panel-title>
+                <!-- </div> -->
+                <!-- <div class="col"> -->
+                    <mat-panel-description class="header-center">
+                        {{package.accommodation.name}}
+                    </mat-panel-description>
+                <!-- </div> -->
+                <!-- <div class="col"> -->
+                    <span class="justify-content-end nights"> 3 days 2 Nights</span>
+                <!-- </div> -->
+            <!-- </div> -->
+
+        </mat-expansion-panel-header>
+
+        <!-- Expantion content -->
+        <mat-card class="booking-card">
+            <div>
+
+            </div>
+            <!-- design package to show acooomodations -->
+            <mat-card-content>
+                <img mat-card-image (click)="hm.OpenAccomodationDialog(package.accommodation)"
+                    [src]="'http://localhost:1337/'+package.accommodation.profile?.url" alt="Photo of a Shiba Inu"
+                    class="book-thumbnail">
+                <div class="detail-content">
+                    <div class="ammenities">
+                        <div class="row">
+                            <div class="col">
+                                <span>
+                                    <mat-icon>local_hotel</mat-icon>&nbsp;
+                                    <b>{{package.accommodation.rooms}} Bedrooms</b>
+                                </span>
+                            </div>
+                            <div class="col">
+                                <span>
+                                    <mat-icon>people</mat-icon>&nbsp;
+                                    <b>3 People Max</b>
+                                </span>
+                            </div>
+                            <div class="col">
+                                <span>
+                                    <mat-icon>pool</mat-icon>&nbsp;
+                                    <b>Pool</b>
+                                </span>
+                            </div>
+                            <div class="col">
+                                <span>
+                                    <mat-icon>pool</mat-icon>&nbsp;
+                                    <b>Jacuzzi</b>
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <mat-icon>ac_unit</mat-icon>&nbsp;
+                                <b>Air Conditioner</b>
+                            </div>
+                            <div class="col">
+                                <mat-icon>beach_access</mat-icon>&nbsp;
+                                <b>Beach On site</b>
+                            </div>
+                            <div class="col">
+                                <mat-icon>airport_shuttler</mat-icon>&nbsp;
+                                <b>Airport Transfer</b>
+                            </div>
+                            <div class="col">
+                                <mat-icon>all_inclusive</mat-icon>&nbsp;
+                                <b>all Inclusive</b>
+                            </div>
+
+                        </div>
+                        <mat-divider></mat-divider>
+                        <p>
+                            {{package.accommodation.shortDesc}}
+                        </p>
+                    </div>
+                    <mat-card-actions class="d-flex justify-content-end">
+                        <button mat-button (click)="hm.OpenAccomodationDialog(package.accommodation)">Details</button>
+                        <button mat-raised-button color="primary" (click)="hm.OpenWizardDialog(package, params)" *ngIf="!normalState">Book
+                            now!</button>
+                    </mat-card-actions>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </mat-expansion-panel>
+</mat-accordion>

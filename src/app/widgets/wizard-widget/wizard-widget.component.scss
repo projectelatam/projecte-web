@@ -1,4 +1,18 @@
 .wizard{
-    height: 60vh;
+    min-height: 60vh;
+    height: 100%;
     z-index: 200000!important;
+    .package,
+    app-book-card-package{
+        width: 75%;
+    }
+}
+
+.err{
+    color: red;
+}
+
+
+.card {
+    margin: auto;
 }

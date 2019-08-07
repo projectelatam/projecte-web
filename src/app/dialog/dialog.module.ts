@@ -8,12 +8,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from '../material/material.module';
 import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
 import { WizardDialogComponent } from './wizard-dialog/wizard-dialog.component';
+import { AccomodationDialogComponent } from './accomodation-dialog/accomodation-dialog.component';
 
 @NgModule({
   declarations: [
     LoginDialogComponent,
     RegisterDialogComponent,
     WizardDialogComponent,
+    AccomodationDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -26,11 +28,13 @@ import { WizardDialogComponent } from './wizard-dialog/wizard-dialog.component';
   exports: [
     LoginDialogComponent,
     RegisterDialogComponent,
-    WizardDialogComponent
+    WizardDialogComponent,
+    AccomodationDialogComponent
   ],
   entryComponents: [
     LoginDialogComponent,
-    WizardDialogComponent
+    WizardDialogComponent,
+    AccomodationDialogComponent
   ]
 })
 export class DialogModule { }

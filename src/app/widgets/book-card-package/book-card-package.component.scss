@@ -1,0 +1,91 @@
+
+.booking-card{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    padding-bottom: 0!important;
+    mat-card-content{
+        display: flex;
+        flex-direction: row;
+        height: 200px;
+        .book-thumbnail{
+            width: 300px;
+            height: auto;
+            margin: 0;
+            margin-left: -16px;
+            // margin-top: -16px;
+            z-index: 1;
+            cursor: pointer;
+        }
+        p{
+            padding-top: 10px;
+        }    
+    }
+    .detail-content{
+        width: 100%;
+        padding-left: 16px; 
+    }
+    mat-icon{
+        color: orange;
+        // #ff7000
+        // #5abfff
+    }
+    mat-card-actions{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin-bottom: 0;
+    }
+}
+
+// mat-expansion-panel-header{
+//     border-bottom: 3px solid springgreen;
+// }
+
+.Penthouse{
+    mat-expansion-panel-header{
+        border-bottom: 3px solid springgreen;
+    }
+    mat-icon{
+        color: springgreen;
+    }   
+}
+
+.Bungalo{
+    mat-expansion-panel-header{
+        border-bottom: 3px solid orange;
+    }
+    mat-icon{
+        color: orange;
+    }
+}
+
+.Villa{
+    mat-expansion-panel-header{
+        border-bottom: 3px solid #5abfff;
+    }
+    mat-icon{
+        color: #5abfff;
+    }
+}
+
+.nights{
+    padding-right: 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+mat-expansion-panel-header{
+    position: relative;
+}
+
+.header-center{
+    // position: absolute;
+    // left: 0;
+    // right: 0;
+    // top: 0;
+    // bottom: 0;
+    // margin: auto;
+}
+
+// border-bottom: 3px solid springgreen;
