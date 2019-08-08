@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HelperServiceService } from 'src/app/shared/helper-service.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-book-card-package',
@@ -7,17 +8,34 @@ import { HelperServiceService } from 'src/app/shared/helper-service.service';
   styleUrls: ['./book-card-package.component.scss']
 })
 export class BookCardPackageComponent implements OnInit {
-  @Input() public package = {}; // renamme to pakages
+  @Input() public package = {
+    name: '',
+    accommodation: {
+      name: '',
+      descriptiono: '',
+      roomType: '',
+      profile: { url: '' },
+      gallery: [{ url: '' }],
+      type: '',
+      shortDesc: '',
+      rooms: 0,
+      starts: 0,
+      rate: 0,
+    }
+  }; // renamme to pakages
   @Input() public expanded: boolean = false;
-  @Input() public params:any  = {};
-  @Input() public normalState:boolean = false;
+  @Input() public params: any = {};
+  @Input() public normalState: boolean = false;
+  public environment;
 
-  constructor(public hm: HelperServiceService,) {}
+  constructor(public hm: HelperServiceService, ) { 
+    this.environment = environment;
+  }
 
   ngOnInit() {}
 
-  public getImage(d){
-    switch(d){
+  public getImage(d) {
+    switch (d) {
       case 'Penthouse':
         return 'fa-gem';
     }

@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ModelsService {
-  public baseApiUrl = 'http://localhost:1337'
+  public baseApiUrl = environment.apiUrl;
   public modelUrl = 'models' // refactor to entity
   //this.apiRoot
 

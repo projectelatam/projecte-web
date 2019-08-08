@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModelsService } from 'src/app/services/models.service';
 import { AuthenticationService } from 'src/app/shared';
-
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   }
 
   getImageUrl(url) {
-    return "http://localhost:1337/" + url;
+    return environment.apiUrl + url;
   }
 
 }

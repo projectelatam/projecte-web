@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-accomodation-detail-widget',
@@ -50,7 +51,7 @@ export class AccomodationDetailWidgetComponent implements OnInit {
   }
 
   public getImageUrl(url) {
-    return "http://localhost:1337/" + url;
+    return environment.apiUrl + '/' + url;
   }
 
   public addImages() {

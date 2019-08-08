@@ -16,7 +16,7 @@ export class FooterComponent implements OnInit {
     public authService: AuthenticationService,
     public hm: HelperServiceService
   ) {
-    // this.authService.get('http://localhost:1337/rerservations').subscribe(d => {
+    // this.authService.get(environment.apiUrl+'/rerservations').subscribe(d => {
     //   console.log('auth', d)
     // });
   }

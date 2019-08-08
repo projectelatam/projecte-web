@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -12,6 +12,7 @@ export class WizardWidgetComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   dateMessage: string = '';
+  params: any = { chin: '', chon: '' };
   @Input() data: any = {};
 
   constructor(
@@ -23,18 +24,35 @@ export class WizardWidgetComponent implements OnInit {
     //   chin: ['', Validators.required],
     //   chon: ['', Validators.required]
     // });
-  }
-
-  ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      chin: [this.data.params.chin, Validators.required],
-      chon: [this.data.params.chon, Validators.required]
-    });
+    this.params = { chin: '', chon: '' };
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
     });
-    if (this.data.params.chin || this.data.params.chon) {
-      this.dateMessage = "Please Select Your Dates to continue"
+  }
+
+  ngOnInit() {
+
+  }
+
+  public ngOnChanges(c: SimpleChanges) {
+    if (c['data']) {
+      this.params = { ...this.data.params };
+      this.params.chin = this.params.chin || '';
+      this.params.chon = this.params.chin || '';
+
+      this.firstFormGroup = this._formBuilder.group({
+        chin: [this.params.chin, Validators.required],
+        chon: [this.params.chon, Validators.required]
+      });
+
+      if (!this.params.chin || !this.params.chon) {
+        this.dateMessage = "Please Select Your Dates to continue"
+      }
     }
+
+    console.log('params', this.params);
+ 
+
+
   }
 }

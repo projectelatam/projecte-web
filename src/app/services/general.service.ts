@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { catchError } from 'rxjs/operators';
 export class GeneralService {
   // refactor to move all to its own service
   //generak service should be for more generall things
-  public baseApiUrl = 'http://localhost:1337'
+  public baseApiUrl = environment.apiUrl;
 
   //this.apiRoot
 

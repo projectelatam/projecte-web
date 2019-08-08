@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // import * as $ from 'jquery';
 import { ViewEncapsulation } from '@angular/compiler/src/core';
 import { GeneralService } from 'src/app/services/general.service';
+import { environment } from 'src/environments/environment.prod';
 // declare var jQuery: any;
 // declare var $ : any;
 @Component({
@@ -11,9 +12,11 @@ import { GeneralService } from 'src/app/services/general.service';
   // encapsulation: ViewEncapsulation.None
 })
 export class SilderComponent implements OnInit {
-
+  public environment;
   public images = [];
-  constructor(public generalService: GeneralService) { }
+  constructor(public generalService: GeneralService) {
+    this.environment = environment;
+   }
 
   ngOnInit() {
     this.generalService.getSliderImages().subscribe(i => {

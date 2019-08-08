@@ -5,6 +5,7 @@ import { tap, map, switchMap, catchError } from 'rxjs/operators';
 import { AuthService } from 'ngx-auth';
 
 import { TokenStorage } from './token-storage.service';
+import { environment } from 'src/environments/environment';
 
 interface AccessData {
   accessToken: string;
@@ -75,7 +76,7 @@ export class AuthenticationService implements AuthService {
       .getRefreshToken()
       .pipe(
         switchMap((refreshToken: string) =>
-          this.http.post(`http://localhost:1337/auth/refresh`, { refreshToken })
+          this.http.post(`${environment.apiUrl}/auth/refresh`, { refreshToken })
         ),
         tap((tokens: AccessData) => this.saveAccessData(tokens)),
         catchError((err) => {
@@ -104,7 +105,7 @@ export class AuthenticationService implements AuthService {
    * @returns {boolean}
    */
   public verifyTokenRequest(url: string): boolean {
-    return url.endsWith('http://localhost:1337/auth/refresh');
+    return url.endsWith(`${environment.apiUrl}/auth/refresh`);
   }
 
   /**
@@ -112,7 +113,7 @@ export class AuthenticationService implements AuthService {
    */
 
   public login(user?, password?): Observable<any> {
-    return this.http.post(`http://localhost:1337/auth/local`, { identifier: user, password: password })
+    return this.http.post(`${environment.apiUrl}/auth/local`, { identifier: user, password: password })
       .pipe(tap((tokens) => this.saveAccessData(tokens)));
   }
 

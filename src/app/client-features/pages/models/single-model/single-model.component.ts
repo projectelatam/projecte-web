@@ -3,6 +3,7 @@ import { ModelsService } from 'src/app/services/models.service';
 import { NgxGalleryAnimation, NgxGalleryOptions, NgxGalleryImage } from 'ngx-gallery';
 import { ActivatedRoute } from '@angular/router';
 import { ModelsModelView } from '../../../../models/models-model-view'
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-single-model',
@@ -54,7 +55,7 @@ export class SingleModelComponent implements OnInit {
   }
 
   public getImageUrl(url) {
-    return "http://localhost:1337/" + url;
+    return environment.apiUrl + "/" + url;
   }
 
   public addImages() {

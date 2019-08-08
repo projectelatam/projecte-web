@@ -3,7 +3,7 @@
     <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
         <mdb-carousel-item *ngFor="let image of images"> 
           <div class="view w-100">
-            <div class="d-block w-100" [style.backgroundImage]="'url(http://localhost:1337/'+image.image.url+')'" class="slide-image"></div>
+            <div class="d-block w-100" [style.backgroundImage]="'url('+environment.apiUrl+'/'+image.image.url+')'" class="slide-image"></div>
             <div class="mask  waves-light" mdbWavesEffect></div>
             <!-- rgba-black-light -->
           </div>
