@@ -7,6 +7,14 @@
         <!-- <div class="col-9"> -->
         <ng-container *ngFor="let package of packages">
             <app-book-card-package [package]="package" [expanded]="shouldExpand(package.accommodation)" [params]="params"></app-book-card-package>
+
+        </ng-container>
+        <ng-container *ngFor="let package of packages">
+            <ng-container *ngFor="let rPackage of package.relatedPackages?.packages">
+                <!-- [expanded]="shouldExpand(rPackage.accommodation)" -->
+                <app-book-card-package [package]="rPackage" [params]="params"></app-book-card-package>
+            </ng-container>
+
         </ng-container>
     </div>
 </div>

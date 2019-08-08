@@ -32,7 +32,7 @@
             <!-- design package to show acooomodations -->
             <mat-card-content>
                 <img mat-card-image (click)="hm.OpenAccomodationDialog(package.accommodation)"
-                    [src]="this.environment.apiUrl+'/'+package.accommodation.profile?.url" alt="Photo of a Shiba Inu"
+                    [src]="this.environment.apiUrl+package.accommodation.profile?.url" alt="Photo of a Shiba Inu"
                     class="book-thumbnail">
                 <div class="detail-content">
                     <div class="ammenities">

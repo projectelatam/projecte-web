@@ -13,6 +13,7 @@
                             <!-- 3 days in advance -->
                             <input matInput [matDatepicker]="picker1" formControlName="chin"
                                 [max]="params.chon">
+                                <!-- max here cab be define by the amount of the select -->
                             <mat-datepicker-toggle matSuffix [for]="picker1" matTooltip="Book with 3 days in advance">
                             </mat-datepicker-toggle>
                             <mat-datepicker #picker1></mat-datepicker>

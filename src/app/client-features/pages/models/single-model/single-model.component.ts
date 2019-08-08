@@ -55,7 +55,7 @@ export class SingleModelComponent implements OnInit {
   }
 
   public getImageUrl(url) {
-    return environment.apiUrl + "/" + url;
+    return environment.apiUrl + url;
   }
 
   public addImages() {

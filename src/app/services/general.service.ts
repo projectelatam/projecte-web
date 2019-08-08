@@ -17,14 +17,20 @@ export class GeneralService {
   constructor(private http: HttpClient) {
   }
 
-  public getPackages(): Observable<any> {
-    const url = `${this.baseApiUrl}/packages/`;
+  public getPackages(params = {}): Observable<any> {
+    const p = "?" + Object.keys(params).map(key => key + '=' + params[key]).join('&');
+    const url = `${this.baseApiUrl}/packages/${p}`;
     return this.http.get<any>(url).pipe(catchError(this.handleError<any>('getPackages')));
   }
 
   public getPackage(id): Observable<any> {
     const url = `${this.baseApiUrl}/packages/${id}`;
     return this.http.get<any>(url).pipe(catchError(this.handleError<any>('getPackage')));
+  }
+
+  public getRelatedPackage(id): Observable<any> {
+    const url = `${this.baseApiUrl}/relatedPackages/${id}`;
+    return this.http.get<any>(url).pipe(catchError(this.handleError<any>('getRelatedPackage')));
   }
 
   public getReservations(): Observable<any> {

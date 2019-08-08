@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   }
 
   getImageUrl(url) {
+    console.log(environment.apiUrl + url)
     return environment.apiUrl + url;
   }
 
