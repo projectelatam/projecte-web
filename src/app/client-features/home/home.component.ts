@@ -17,14 +17,13 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.modelService.getModels().subscribe(data => {
-      this.models = data;
-    });
+    this.modelService.getModels(
+      /*{ 'id_in': [3,6,8] }*/
+      '?id_in=6&id_in=11&id_in=13&id_in=17&id_in=25&id_in=37')
+      .subscribe(data => {
+        this.models = data;
+      });
   }
 
-  getImageUrl(url) {
-    console.log(environment.apiUrl + url)
-    return environment.apiUrl + url;
-  }
 
 }

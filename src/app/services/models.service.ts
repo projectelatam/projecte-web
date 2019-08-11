@@ -16,9 +16,11 @@ export class ModelsService {
   constructor(private http: HttpClient) {
   }
 
-  getModels(): Observable<any> {
+  getModels(params = ''): Observable<any> {
     // const url = `${this.baseApiUrl}/${this.modelUrl}/secondary-section`;
-    const url = `${this.baseApiUrl}/${this.modelUrl}/`;
+    // const p = "?" + Object.keys(params).map(key => key + '=' + params[key]).join('&');
+    // const url = `${this.baseApiUrl}/${this.modelUrl}${p}`;
+    const url = `${this.baseApiUrl}/${this.modelUrl}/${params}`;
     return this.http.get<any>(url).pipe(catchError(this.handleError<any>('getModels')));
   }
   

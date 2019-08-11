@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { OverlayContainer, FullscreenOverlayContainer, Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, UrlTree, UrlSegmentGroup, UrlSegment, PRIMARY_OUTLET } from '@angular/router';
 // import { MatFormFieldControl } from '@angular/material/form-field';
 
 @Component({
@@ -19,7 +19,7 @@ export class BookingWidgetComponent implements OnInit {
   public checkout: string = '';
   public stay: string = 'all';
   public nights;
-
+  public showWidget = false;
   public houseStay = [
     // { value: '', disabled: false },
     { value: 'all', viewValue: 'All' },
@@ -36,13 +36,13 @@ export class BookingWidgetComponent implements OnInit {
     { value: '7', viewValue: '7 nights 6 Days (1 Week)' },
   ];
 
-  public packageTypes =  [
+  public packageTypes = [
     { value: 'all', viewValue: 'Show me All' },
     { value: 'standard', viewValue: 'Standard' },
     { value: 'plus', viewValue: 'Plus' },
     { value: 'premiumplus', viewValue: 'Premium +' },
   ];
-  
+
 
   constructor(private router: Router) {
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
@@ -57,6 +57,14 @@ export class BookingWidgetComponent implements OnInit {
         window.scrollTo(0, 0);
       }
     });
+
+    const tree: UrlTree = router.parseUrl(router.url);
+    const g: UrlSegmentGroup = tree.root.children[PRIMARY_OUTLET];
+    const s: UrlSegment[] = g && g.segments? g.segments: [];
+    this.showWidget = s &&  s[0] && s[0].path == 'booking' ? true : false; // returns 'team'
+    // console.log(s[0].path);
+   // s[0].path; // returns 'team'
+   // s[0].parameters; // returns {id: 33}
   }
 
   ngOnInit() {
@@ -65,7 +73,7 @@ export class BookingWidgetComponent implements OnInit {
     // overlayRef.attach(userProfilePortal);
   }
 
-  public dateValidation(date){
+  public dateValidation(date) {
     console.log(date);
   }
 

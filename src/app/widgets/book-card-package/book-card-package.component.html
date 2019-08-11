@@ -14,11 +14,12 @@
                 <!-- </div> -->
                 <!-- <div class="col"> -->
                     <mat-panel-description class="header-center">
-                        {{package.accommodation.name}}
+                        <!-- {{package.accommodation.name}} -->
+                        {{package.rate | currency: 'USD'}} USD/Night
                     </mat-panel-description>
                 <!-- </div> -->
                 <!-- <div class="col"> -->
-                    <span class="justify-content-end nights"> 3 days 2 Nights</span>
+                    <span class="justify-content-end nights"> {{package.nights+1}} days {{package.nights}} Nights</span>
                 <!-- </div> -->
             <!-- </div> -->
 
@@ -44,9 +45,9 @@
                                 </span>
                             </div>
                             <div class="col">
-                                <span>
+                                <span matTooltip="{{maxPeopleDesc(package.pax * 2)}}">
                                     <mat-icon>people</mat-icon>&nbsp;
-                                    <b>3 People Max</b>
+                                    <b>{{package.pax * 2}} People Max</b>
                                 </span>
                             </div>
                             <div class="col">

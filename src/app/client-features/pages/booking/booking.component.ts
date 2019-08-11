@@ -23,10 +23,12 @@ export class BookingComponent implements OnInit {
     if (!this.isEmpty(this.params)) {
       console.log('set defaults')
       this.params = this.params = {
-        stay: 'all'
+        stay: 'all',
+        packageType: 'standard'
       };//set defoulst
       this.setRouterParams()
     }
+    // console.log('url',router.url);
   }
 
   public openDialog(packageId) {
@@ -54,10 +56,12 @@ export class BookingComponent implements OnInit {
 
   public fillUpRelatedPackages(pkgs) { // move to the controller
     // const standardPkgs = pkgs.filter(p => p.type == 'standard');
+    // this.packages = pkgs;
     pkgs.forEach(sp => {
       console.log(sp);
-      if(sp.relatedpackage === null || sp.relatedpackage.id === null) return;
+      if (sp.relatedpackage === null || sp.relatedpackage.id === null) return;
       this.generalService.getRelatedPackage(sp.relatedpackage.id).subscribe(rp => {
+        rp.packages.map(p => p.accommodation = sp.accommodation);
         sp.relatedpackage = rp
         this.packages.push(sp);
         console.log(this.packages)
@@ -67,18 +71,46 @@ export class BookingComponent implements OnInit {
     // this.generalService.getRelatedPackage()
   }
 
-  public shouldExpand(accomo) {
-    if (this.params.stay === 'all') {
+  public shouldExpand(accomo, type?) {
+    // console.log('eses',type, this.params.packageType)
+    // todo Refactor
+    if (this.params.stay === 'all' && this.params.packageType == 'all') {
       return true
     }
-    else {
-      return accomo.type == this.params.stay;
+    if (this.params.stay === accomo.type && this.params.packageType == type) {
+      return true
     }
+    if (this.params.stay === accomo.type && this.params.packageType == 'all') {
+      return true
+    }
+    if (this.params.stay === 'all' && this.params.packageType == type) {
+      return true
+    }
+    return false;
   }
+  
   public isEmpty(object) { for (var i in object) { return true; } return false; }
+
   private setRouterParams(): void {
     this.router.navigate([], { relativeTo: this.route, queryParams: this.params, replaceUrl: this.replace });
     this.replace = false;
+  }
+
+  public doNotShowTheSamePkg(pkgId, pkgId2) {
+    return pkgId !== pkgId2;
+  }
+
+  public scrolltoBook() {
+    // console.log('suma', this.params.stay + this.params.packageType);
+    const bookCards = document.getElementsByClassName(this.params.stay + this.params.packageType);
+    // console.log('bookcards', bookCards);
+    if (bookCards.length) {
+      bookCards[0].scrollIntoView();
+    }
+  }
+
+  ngAfterViewInit() {
+    this.scrolltoBook();
   }
 
 }

@@ -28,6 +28,11 @@ export class GeneralService {
     return this.http.get<any>(url).pipe(catchError(this.handleError<any>('getPackage')));
   }
 
+  public getRelatedPackages(): Observable<any> {
+    const url = `${this.baseApiUrl}/relatedPackages`;
+    return this.http.get<any>(url).pipe(catchError(this.handleError<any>('getRelatedPackages')));
+  }
+
   public getRelatedPackage(id): Observable<any> {
     const url = `${this.baseApiUrl}/relatedPackages/${id}`;
     return this.http.get<any>(url).pipe(catchError(this.handleError<any>('getRelatedPackage')));

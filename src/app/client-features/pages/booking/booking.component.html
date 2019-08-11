@@ -6,15 +6,13 @@
     <div class="col-12">
         <!-- <div class="col-9"> -->
         <ng-container *ngFor="let package of packages">
-            <app-book-card-package [package]="package" [expanded]="shouldExpand(package.accommodation)" [params]="params"></app-book-card-package>
-
-        </ng-container>
-        <ng-container *ngFor="let package of packages">
-            <ng-container *ngFor="let rPackage of package.relatedPackages?.packages">
-                <!-- [expanded]="shouldExpand(rPackage.accommodation)" -->
-                <app-book-card-package [package]="rPackage" [params]="params"></app-book-card-package>
+            <!-- {{package.name}} -->
+            <app-book-card-package class="{{package.accommodation.type+package.type}}" [package]="package" [expanded]="shouldExpand(package.accommodation, package.type)" [params]="params"></app-book-card-package>
+            <ng-container *ngFor="let rPackage of package.relatedpackage?.packages">
+                <ng-container *ngIf="doNotShowTheSamePkg(rPackage.id, package.id)">
+                    <app-book-card-package class="{{rPackage.accommodation.type+rPackage.type}}" [package]="rPackage" [expanded]="shouldExpand(rPackage.accommodation, rPackage.type)" [params]="params"></app-book-card-package>
+                </ng-container>
             </ng-container>
-
         </ng-container>
     </div>
 </div>

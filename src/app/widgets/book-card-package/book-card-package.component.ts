@@ -28,16 +28,25 @@ export class BookCardPackageComponent implements OnInit {
   @Input() public normalState: boolean = false;
   public environment;
 
-  constructor(public hm: HelperServiceService, ) { 
+  constructor(public hm: HelperServiceService, ) {
     this.environment = environment;
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   public getImage(d) {
     switch (d) {
       case 'Penthouse':
         return 'fa-gem';
+    }
+  }
+
+  public maxPeopleDesc(p) {
+    switch (p) {
+      case 2:
+        return 'You and your playmate';
+      case 4:
+        return '2 guest and 2 playmate'
     }
   }
 }

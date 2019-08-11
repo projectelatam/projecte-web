@@ -16,6 +16,7 @@ import { WizardWidgetComponent } from './wizard-widget/wizard-widget.component';
 import { BookCardPackageComponent } from './book-card-package/book-card-package.component';
 import { AccomodationDetailWidgetComponent } from './accomodation-detail-widget/accomodation-detail-widget.component';
 import { NgxGalleryModule } from 'ngx-gallery';
+import { ModelListWidgetComponent } from './model-list-widget/model-list-widget.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NgxGalleryModule } from 'ngx-gallery';
     LoginWidgetComponent,
     WizardWidgetComponent,
     BookCardPackageComponent,
-    AccomodationDetailWidgetComponent
+    AccomodationDetailWidgetComponent,
+    ModelListWidgetComponent
   ],
   imports: [
     CommonModule,
@@ -47,7 +49,8 @@ import { NgxGalleryModule } from 'ngx-gallery';
     LoginWidgetComponent,
     WizardWidgetComponent,
     BookCardPackageComponent,
-    AccomodationDetailWidgetComponent
+    AccomodationDetailWidgetComponent,
+    ModelListWidgetComponent
   ], 
   providers: [],
 })
