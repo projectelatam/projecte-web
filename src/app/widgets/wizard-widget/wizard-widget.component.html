@@ -35,7 +35,7 @@
                 <app-book-card-package [package]="data.package" [expanded]="true" class="package" [normalState]="true">
                 </app-book-card-package>
 
-                <div>
+                <div class="step-actions">
                     <button mat-button matStepperNext>Next</button>
                 </div>
             </div>
@@ -47,13 +47,14 @@
 
         <form [formGroup]="secondFormGroup">
             <ng-template matStepLabel>Fill out your Card Info</ng-template>
+            <app-model-list-widget></app-model-list-widget>
             <!-- <mat-form-field>
                 <input matInput placeholder="Address" formControlName="secondCtrl" required>
             </mat-form-field> -->
             <div>
                 <img src="/assets/cards.gif" class="card" />
             </div>
-            <div>
+            <div class="step-actions">
                 <button mat-button matStepperPrevious>Back</button>
                 <button mat-button matStepperNext>Next</button>
             </div>
@@ -61,7 +62,7 @@
 
     </mat-step>
 
-    <mat-step>
+    <!-- <mat-step>
 
         <ng-template matStepLabel>Done</ng-template>
         You are now done.
@@ -69,7 +70,7 @@
             <button mat-button matStepperPrevious>Back</button>
             <button mat-button (click)="stepper.reset()">Reset</button>
         </div>
-    </mat-step>
+    </mat-step> -->
 
     <ng-template matStepperIcon="phone">
         <mat-icon>call_end</mat-icon>

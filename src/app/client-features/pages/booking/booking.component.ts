@@ -29,6 +29,7 @@ export class BookingComponent implements OnInit {
       this.setRouterParams()
     }
     // console.log('url',router.url);
+    
   }
 
   public openDialog(packageId) {

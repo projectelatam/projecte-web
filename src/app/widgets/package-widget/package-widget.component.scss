@@ -1,0 +1,66 @@
+// :host{
+//     max-width: 300px;
+//     width: 100%;
+// }
+
+.package{
+    max-width: 300px;
+    width: 100%;
+    margin-bottom: 30px;
+    mat-card-header{
+        margin: -16px -16px 0 -16px;
+        padding: 16px;
+        background: #795548; //move to broze class 
+    }
+    &.famous{
+        // padding: 0px;
+        margin-left: 2px;
+        margin-right: 2px;
+        mat-card-header{
+            background: orange;
+        }
+    }
+    &.luxury{
+        mat-card-header{
+            background: #ff4081; // refactor using material variables or refactoring to become a material component
+            background: #03A9F4; // refactor using material variables or refactoring to become a material component
+            // #2196F3
+        }
+    }
+    mat-card-actions{
+        display: flex;
+        justify-content: center;
+    }
+    a{
+        color: orange;
+        display: contents;
+    }
+}
+
+
+.Penthouse{
+    mat-expansion-panel-header{
+        border-bottom: 3px solid springgreen;
+    }
+    mat-icon{
+        color: springgreen;
+    }   
+}
+
+.Bungalo{
+    mat-expansion-panel-header{
+        border-bottom: 3px solid orange;
+    }
+    mat-icon{
+        color: orange;
+    }
+}
+
+.Villa{
+    mat-expansion-panel-header{
+        border-bottom: 3px solid #5abfff;
+    }
+    mat-icon{
+        color: #5abfff;
+    }
+}

@@ -2,6 +2,7 @@
     min-height: 60vh;
     height: 100%;
     z-index: 200000!important;
+    position: relative;
     .package,
     app-book-card-package{
         width: 75%;
@@ -19,4 +20,10 @@
 
 .wizard-content{
     margin-top: 10px;
+}
+
+.step-actions{
+    position: absolute;
+    bottom: -6.277%;
+    right: 0;
 }

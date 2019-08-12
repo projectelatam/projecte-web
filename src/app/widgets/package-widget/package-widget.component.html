@@ -1,0 +1,38 @@
+<mat-card class="package">
+        <mat-card-header>
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            <mat-card-title>{{data?.name}}</mat-card-title>
+            <mat-card-subtitle>3 days 2 Nights ${{(data?.total / data?.nights)}}/Night</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="http://localhost:1337{{data?.image?.url}}" alt="Photo of a Shiba Inu" height="200px">
+        <mat-card-content>
+            <p>
+                The Best Sex Vacation Package In The World.
+            </p>
+            <mat-list>
+                <!-- Blue bay -->
+                <mat-divider></mat-divider>
+                <div>{{data?.description}}</div>
+                <!-- <mat-list-item>- 2 Nights 3 days</mat-list-item>
+                <mat-list-item>- Beautiful playmate for the entire trip.</mat-list-item>
+                <mat-list-item>- Pre-selects your Playmade for your stay. <a href="#">( look gallery)</a></mat-list-item>
+                <mat-list-item>- VIP Airport Transfer.</mat-list-item>
+                <mat-list-item>- Welcome at your arrival by your playmate.</mat-list-item>
+                <mat-list-item>- Prestigious Penthouse Accomodation.</mat-list-item>
+                <mat-list-item>- Amenities on the property.</mat-list-item>
+                <mat-list-item>- All meals and drinks Included on the property (all Inclusive)</mat-list-item>
+                <mat-list-item>- Premium drink of your choice in the unit <a href="#">(see selection list)</a>
+                </mat-list-item>
+                <mat-list-item>- Beach on site</mat-list-item>
+                <mat-list-item>- Activity on the property.</mat-list-item>
+                <mat-list-item>- Two (2) outdoor activities of your choice * </mat-list-item>
+                <mat-list-item>- 24hr services (by uplaymate.com, call center)</mat-list-item>
+                <mat-list-item>- Wireless DSL Internet.</mat-list-item>
+                <mat-list-item>- Check in 3pm / Check out 12pm</mat-list-item> -->
+                <mat-divider></mat-divider>
+            </mat-list>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-flat-button color="secondary">Book Now!</button>
+        </mat-card-actions>
+    </mat-card>
