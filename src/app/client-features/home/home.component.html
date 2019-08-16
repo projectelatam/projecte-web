@@ -1,5 +1,8 @@
 <div class="row justify-content-center">
-  <div class="col-8 text-center">
+    <div class="col-4">
+      <img src="{{enviroment.apiUrl}}/uploads/020462af6de241f6b6ee8f1701c9416a.jpeg" alt="" class="img-fluid">
+    </div>
+  <div class="col-8">
     <p *ngIf="auth.isAuthorizedUser">Welcome back, {{auth.getUser()?.username}}</p>
     <h1 class="title-nfasis"><span class="underline">Why</span> Choose Us</h1>
     <p>Your confidence in our ability to assist you with a "dream come true" experience will be rewarded with
@@ -11,4 +14,4 @@
   <!-- <div class="col-4"></div> -->
 </div>
 <app-model-list-widget [models]="models"></app-model-list-widget>
-<button mat-raised-button color="primary" [routerLink]="'/gallery'" class="show-models">Show all uplaymates</button>
+<!-- <button mat-raised-button color="primary" [routerLink]="'/gallery'" class="show-models">Show all uplaymates</button> -->

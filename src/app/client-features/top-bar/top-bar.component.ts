@@ -10,7 +10,7 @@ export class TopBarComponent implements OnInit {
   public navItems = [
     ['Home', '/'],
     ['Booking', '/booking'],
-    ['Packages', '/packages'],
+    ['Packages', '/booking'],
     ['Contact', '/contact'],
     ['Gallery', '/gallery']
   ]

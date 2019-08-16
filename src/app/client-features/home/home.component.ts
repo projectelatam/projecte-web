@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  public enviroment = environment;
   public models;
   constructor(
     public modelService: ModelsService,

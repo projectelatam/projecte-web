@@ -78,3 +78,12 @@ strong{
 .transparent-wizard .mat-dialog-container{
     background: transparent;
 }
+
+.blur-box{
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+.no-login{
+    content: 'Please login to see the Images'
+}
