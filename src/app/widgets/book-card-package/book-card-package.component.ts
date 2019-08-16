@@ -10,6 +10,10 @@ import { environment } from 'src/environments/environment';
 export class BookCardPackageComponent implements OnInit {
   @Input() public package = {
     name: '',
+    rate: 0,
+    nights: 0,
+    pax: 0,
+    description: '',
     accommodation: {
       name: '',
       descriptiono: '',
